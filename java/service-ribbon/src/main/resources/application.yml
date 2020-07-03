@@ -1,0 +1,12 @@
+server:
+  port: 8767
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://192.168.139.52:8761/eureka/
+
+spring:
+  application:
+    name: service-ribbon
