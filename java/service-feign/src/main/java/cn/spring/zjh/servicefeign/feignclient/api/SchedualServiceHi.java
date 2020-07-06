@@ -13,10 +13,6 @@ public interface SchedualServiceHi {
     @PostMapping("/getAuth")
      String auth(String name);
 
-
-
-
-
     @PostMapping("/testAuth")
      String testAuth(@RequestHeader("token") String token);
 }
