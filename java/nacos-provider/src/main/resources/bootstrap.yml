@@ -8,4 +8,4 @@ spring:
         file-extension: yaml
         prefix: nacos-provider
   profiles:
-    active: dev
+    active: test

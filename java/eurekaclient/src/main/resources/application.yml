@@ -4,7 +4,7 @@
 #      defaultZone: http://192.168.139.52:8761/eureka/
 
 server:
-  port: 8765
+  port: 8764
 spring:
   application:
     name: eureka-client

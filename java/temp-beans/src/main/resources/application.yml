@@ -7,7 +7,7 @@ spring:
     username: root
     password: xxxx
 server:
-  port: 9999
+  port: 8080
 zjh:
   name: 张嘉豪
 # swagger相关配置

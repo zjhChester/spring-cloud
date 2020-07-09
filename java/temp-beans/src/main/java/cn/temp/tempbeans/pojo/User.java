@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @ApiModel("用户对象")
@@ -19,6 +20,9 @@ public class User {
 //    @NotBlank(message = "password不能为空")
     private String password;
 
+    private String [] arr;
+
+    private List<Msg> msgs;
 
 
 

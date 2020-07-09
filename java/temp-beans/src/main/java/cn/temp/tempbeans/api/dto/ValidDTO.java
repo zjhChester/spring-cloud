@@ -1,5 +1,6 @@
 package cn.temp.tempbeans.api.dto;
 
+import cn.temp.tempbeans.pojo.Msg;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 //swaggerModel描述
@@ -37,4 +39,8 @@ public class ValidDTO {
      */
     @Max(value = 2)
     private Integer age;
+
+    private String [] arr;
+
+    private List<Msg> msgs;
 }

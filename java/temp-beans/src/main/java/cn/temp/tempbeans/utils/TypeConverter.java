@@ -1,8 +1,10 @@
 package cn.temp.tempbeans.utils;
 
 import cn.temp.tempbeans.api.dto.ValidDTO;
+import cn.temp.tempbeans.pojo.Msg;
 import cn.temp.tempbeans.pojo.User;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +41,7 @@ public class TypeConverter {
               }
           }
         }
+        map.entrySet().forEach(item-> System.out.println(item.getKey()+":\t"+item.getValue()));
         //反射获取输出对象实例
         T t = clz.newInstance();
         for (Map.Entry<String,Object> e:map.entrySet() ) {
@@ -47,6 +50,7 @@ public class TypeConverter {
                     for (Field f : f1) {
                         f.setAccessible(true);
                         //将符合 map的key==输出对象的属性名     并且map的value.getClass() == 输出对象的属性类型
+                        System.out.println(map.get(f.getName()));
                         if(f.getName().equals(e.getKey())&&map.get(f.getName())!=null && f.getType().equals(map.get(f.getName()).getClass())){
                             //存放到输出对象的属性中
                             f.set(t,e.getValue());
@@ -62,6 +66,17 @@ public class TypeConverter {
         User user = new User();
         user.setId(1);
         user.setUsername("zjh");
+        String arr[] = new String[5];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i+"";
+        }
+        user.setArr(arr);
+
+        Msg msg = new Msg();
+        msg.setContent("1231231j23po1npodn1pon[131o23");
+        ArrayList<Msg> msgs = new ArrayList<>();
+        msgs.add(msg);
+        user.setMsgs(msgs);
         ValidDTO convert = new TypeConverter().convert(user, ValidDTO.class);
         System.out.println(user);
         System.out.println(convert);

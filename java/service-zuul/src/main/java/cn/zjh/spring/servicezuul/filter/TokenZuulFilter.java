@@ -5,7 +5,7 @@ import com.netflix.zuul.exception.ZuulException;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-@Component
+
 public class TokenZuulFilter extends com.netflix.zuul.ZuulFilter {
 
     /**
