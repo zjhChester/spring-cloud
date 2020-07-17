@@ -132,7 +132,10 @@ class TempBeansApplicationTests {
 
     @Test
     public void testUUID(){
-        System.out.println(UUID.randomUUID());
+        System.out.println(new Date());
 
     }
+
+
+
 }

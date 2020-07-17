@@ -41,7 +41,7 @@ public class TypeConverter {
               }
           }
         }
-        map.entrySet().forEach(item-> System.out.println(item.getKey()+":\t"+item.getValue()));
+//        map.entrySet().forEach(item-> System.out.println(item.getKey()+":\t"+item.getValue()));
         //反射获取输出对象实例
         T t = clz.newInstance();
         for (Map.Entry<String,Object> e:map.entrySet() ) {
@@ -50,9 +50,10 @@ public class TypeConverter {
                     for (Field f : f1) {
                         f.setAccessible(true);
                         //将符合 map的key==输出对象的属性名     并且map的value.getClass() == 输出对象的属性类型
-                        System.out.println(map.get(f.getName()));
-                        if(f.getName().equals(e.getKey())&&map.get(f.getName())!=null && f.getType().equals(map.get(f.getName()).getClass())){
+                        System.out.println(f.getName()=="msgs"?map.get(f.getName()).getClass().getGenericInterfaces()[0]+"----->"+f.getType():"");
+                        if(f.getName().equals(e.getKey())&&map.get(f.getName())!=null){
                             //存放到输出对象的属性中
+                            if (f.getType().equals(map.get(f.getName()).getClass()) || f.getType().equals(map.get(f.getName()).getClass().getGenericInterfaces()[0]))
                             f.set(t,e.getValue());
                         }
                     }
