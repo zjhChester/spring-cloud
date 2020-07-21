@@ -10,14 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import java.util.List;
 
 @RestController
 @RequestMapping("/user")
 @Api(tags = "测试MyBatis-plus动态CRUD")
 public class TestController {
+
+
     @Autowired
     private UserMapper userMapper;
 

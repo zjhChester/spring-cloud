@@ -7,8 +7,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("StatementWithEmptyBody")
 public class Log4WorkUtil {
-    static Map<Integer,Integer>  map = new HashMap<>();
+    private static Map<Integer,Integer>  map = new HashMap<>();
 
     public static void main(String[] args) {
         String fileName = "day";
@@ -48,17 +49,12 @@ public class Log4WorkUtil {
         fileName+=".txt";
         File file = new File("E:\\workplace\\my_notes\\"+fileName);
         OutputStreamWriter os=null;
-        if(!file.exists()){
-            file.mkdirs();
-        }
+        if (!file.exists()) file.mkdirs();
+
         try {
             os = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
             os.write("# "+thisYear+fileName+"工作日志   \r\n\r\n## 任务\r\n\r\n## 详细");
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
@@ -71,7 +67,7 @@ public class Log4WorkUtil {
         }
     }
 
-    static  int getDaysFromMonth(int endMonth,int startMonth){
+    private static  int getDaysFromMonth(int endMonth, int startMonth){
         int res=0;
         for (int i=endMonth-1;i>startMonth;i--){
             res+=map.get(i);
@@ -79,7 +75,7 @@ public class Log4WorkUtil {
         return res;
     }
 
-    static int getDaysFromYear(int year){
+    private static int getDaysFromYear(int year){
     int res = 0;
         for (int i=year-1;i>2020;i--){
             if((i%4==0&&i%100!=0)||i%400==0)

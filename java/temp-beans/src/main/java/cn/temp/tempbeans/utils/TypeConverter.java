@@ -50,7 +50,7 @@ public class TypeConverter {
                     for (Field f : f1) {
                         f.setAccessible(true);
                         //将符合 map的key==输出对象的属性名     并且map的value.getClass() == 输出对象的属性类型
-                        System.out.println(f.getName()=="msgs"?map.get(f.getName()).getClass().getGenericInterfaces()[0]+"----->"+f.getType():"");
+                        System.out.println(f.getName().equals("msgs") ?map.get(f.getName()).getClass().getGenericInterfaces()[0]+"----->"+f.getType():"");
                         if(f.getName().equals(e.getKey())&&map.get(f.getName())!=null){
                             //存放到输出对象的属性中
                             if (f.getType().equals(map.get(f.getName()).getClass()) || f.getType().equals(map.get(f.getName()).getClass().getGenericInterfaces()[0]))

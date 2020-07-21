@@ -1,11 +1,15 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: sc-gateway-service
   cloud:
     nacos:
       config:
+#切换本地config
 #        server-addr: 127.0.0.1:8848
         file-extension: yml
-#        prefix: gateway-predicate
+#        prefix:
   profiles:
-    active: predicate
+    active: gateway-predicate
