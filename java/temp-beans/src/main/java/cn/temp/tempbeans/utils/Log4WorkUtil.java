@@ -49,7 +49,13 @@ public class Log4WorkUtil {
         fileName+=".txt";
         File file = new File("E:\\workplace\\my_notes\\"+fileName);
         OutputStreamWriter os=null;
-        if (!file.exists()) file.mkdirs();
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         try {
             os = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);

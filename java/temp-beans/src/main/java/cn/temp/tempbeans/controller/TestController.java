@@ -1,10 +1,13 @@
 package cn.temp.tempbeans.controller;
+import cn.temp.tempbeans.dao.RolesMapper;
 import cn.temp.tempbeans.dao.UserMapper;
+import cn.temp.tempbeans.pojo.Roles;
 import cn.temp.tempbeans.pojo.User;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,5 +70,16 @@ public class TestController {
     @RequestMapping(value = "/user",method = RequestMethod.PUT)
     public boolean updateUser(@RequestBody User user) {
         return  userMapper.updateById(user)==1;
+    }
+
+    @Autowired
+    private RolesMapper rolesMapper;
+
+    @ApiModelProperty(value = "nacos config",notes = "nacos配置文件")
+    @GetMapping("/nacos")
+    public R<List<Roles>> nacos_config(Roles roles){
+
+        List<Roles> username = rolesMapper.selectList(new QueryWrapper<Roles>().like("username", roles.getUsername()));
+        return R.ok(username);
     }
 }
