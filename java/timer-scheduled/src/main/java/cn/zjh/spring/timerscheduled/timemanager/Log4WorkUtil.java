@@ -47,9 +47,10 @@ public class Log4WorkUtil {
             days+=thisDay+getDaysFromMonth(thisMonth,0);
         }
         fileName += days+"_";
-        fileName += thisMonth/10==0?"0"+thisMonth+thisDay:thisMonth+thisDay;
+        fileName += thisMonth/10==0?"0"+thisMonth:thisMonth;
+        fileName += thisDay/10==0?"0"+thisDay:thisDay;
         fileName+=".txt";
-        File file = new File("E:\\workplace\\my_notes\\"+fileName);
+        File file = new File("E:\\workplace\\my_notes\\work_log\\"+fileName);
         OutputStreamWriter os=null;
         if (!file.exists()) {
             try {
@@ -61,7 +62,7 @@ public class Log4WorkUtil {
 
         try {
             os = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
-            os.write("# "+thisYear+fileName+"工作日志   \r\n\r\n## 任务\r\n\r\n## 详细");
+            os.write("# "+thisYear+"_"+fileName+"工作日志   \r\n\r\n## 任务\r\n\r\n\r\n\r\n## 详细");
 
         } catch (IOException e) {
             e.printStackTrace();

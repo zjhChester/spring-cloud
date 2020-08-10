@@ -31,7 +31,6 @@
                 </template>
         </div>
         <div class="block">
-    
             <el-timeline>
                 <el-timeline-item v-for="d in dataList" v-bind:todo="d" v-bind:key="d.id" :timestamp="d.time"
                     placement="top">

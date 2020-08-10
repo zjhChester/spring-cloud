@@ -1,0 +1,9 @@
+server:
+  port: 8601
+
+datasource:
+  url:
+  username:
+  password:
+primary:
+  key: zjhCheser_in_springcloud_study_about_auto_component
