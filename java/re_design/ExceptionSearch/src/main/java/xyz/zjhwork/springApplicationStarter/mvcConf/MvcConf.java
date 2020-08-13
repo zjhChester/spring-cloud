@@ -8,6 +8,7 @@ import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.http.MediaType;
@@ -26,7 +27,9 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @ComponentScan("xyz.zjhwork")
+@EnableAspectJAutoProxy
 public class MvcConf implements WebMvcConfigurer {
+
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 //        字符转换  包括解决中文乱码
