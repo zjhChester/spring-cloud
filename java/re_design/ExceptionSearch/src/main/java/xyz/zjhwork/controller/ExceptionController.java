@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import xyz.zjhwork.aop.interfaces.AddViewsCount;
 import xyz.zjhwork.entity.Exception;
 import xyz.zjhwork.entity.History;
 import xyz.zjhwork.resmodel.ResponseModel;
@@ -171,6 +172,7 @@ public class ExceptionController {
     }
     //查找
     @ResponseBody
+    @AddViewsCount
     @GetMapping("/getException")
     public ResponseModel getException(@NotNull Integer id,HttpServletRequest request){
         if(Objects.nonNull(id)){
