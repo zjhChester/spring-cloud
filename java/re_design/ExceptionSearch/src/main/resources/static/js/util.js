@@ -88,7 +88,7 @@
                             "\t\t\t\t\t\t\t<a target='_blank'style='cursor: pointer' onclick='toDetailPage("+e.result[i].id+")' class=\"title\">"+title+"</a>\n" +
                             "\t\t\t\t\t\t</div>\n" +
                             "\t\t\t\t\t\t<div class=\"col-xs-4\">\n" +
-                            "\t\t\t\t\t\t\t<p class=\"type\">类型："+type+"</p>\n" +
+                            "\t\t\t\t\t\t\t<p class=\"type\">类型："+type+"</p><p class=\"views\">访问量："+views+"</p>\n" +
                             "\t\t\t\t\t\t</div>\n" +
                             "\t\t\t\t\t\t<hr style=\"border: none;\">\n" +
                             "\t\t\t\t\t\t<div class=\"col-xs-12 \" style=\"font-size: 1.1em; width:80%;margin-bottom: 10%;border-bottom: #adadad  solid 0.5px\">\n" +
@@ -195,6 +195,7 @@
                     $("#title").html(e.result[0].title);
                     $("#author").html("作者："+e.result[0].author);
                     $("#type").html("标签："+e.result[0].type);
+                    $(".viewsTab").html("views:"+e.result[0].views)
                     convert(e.result[0].content);
                     //加载结束
                     $(".load").hide()
@@ -384,7 +385,7 @@
 
 //添加评论
     function addComments(id) {
-        if($("#commentContent").val() == ""){
+        if($("#commentContent").val().trim() == ""){
             $("#commentContent").focus();
             return;
         }else{

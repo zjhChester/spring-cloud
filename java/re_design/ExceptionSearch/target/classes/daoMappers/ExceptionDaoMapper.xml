@@ -56,7 +56,7 @@
     </update>
 
     <select id="searchExceptionByKeywords" resultType="xyz.zjhwork.entity.Exception">
-        SELECT a.id,a.title,a.desc,a.author,a.type,a.createTime from exception a, exception b
+        SELECT a.id,a.title,a.desc,a.author,a.type,a.createTime,a.views from exception a, exception b
         <where>
             <if test="title != null  ">
                 and

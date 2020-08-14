@@ -33,7 +33,7 @@ public interface ExceptionDao {
 
     //最新异常文章  40条新文章
     //修改createTime为id
-    @Select("select id,title,createTime from exception order by id desc limit 0 , 40")
+    @Select("select id,title,createTime,author from exception order by id desc limit 0 , 40")
     List<Exception> newListException();
 
     //我的文章

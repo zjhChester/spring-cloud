@@ -175,30 +175,30 @@ public class ExceptionController {
     @AddViewsCount
     @GetMapping("/getException")
     public ResponseModel getException(@NotNull Integer id,HttpServletRequest request){
-        if(Objects.nonNull(id)){
-            //添加浏览记录
-          if(request.getSession().getAttribute("loginUser")!=null){
-              History history = new History();
-              history.setExceptionId(id);
-              history.setUserId(request.getSession().getAttribute("loginUser").toString());
-              history.setRemark("");
-              history.setTime(DateUtils.getFormat(new Date()));
-              otherService.addHistory(history);
-          }
+            if(Objects.nonNull(id)){
+                //添加浏览记录
+              if(request.getSession().getAttribute("loginUser")!=null){
+                  History history = new History();
+                  history.setExceptionId(id);
+                  history.setUserId(request.getSession().getAttribute("loginUser").toString());
+                  history.setRemark("");
+                  history.setTime(DateUtils.getFormat(new Date()));
+                  otherService.addHistory(history);
+              }
 
-            //查询exception
-            Exception exception = new Exception();
-            exception.setId(id);
-            List<Exception> exceptions = exceptionService.findException(exception);
+                //查询exception
+                Exception exception = new Exception();
+                exception.setId(id);
+                List<Exception> exceptions = exceptionService.findException(exception);
 
-            if(exceptions.size()==0){
-                return ResponseModel.failResModel(0,"no ExceptionId is "+id);
-            }else{
-                return ResponseModel.successResModel(1,"SUCCESS",exceptions.toArray());
+                if(exceptions.size()==0){
+                    return ResponseModel.failResModel(0,"no ExceptionId is "+id);
+                }else{
+                    return ResponseModel.successResModel(1,"SUCCESS",exceptions.toArray());
+                }
             }
-        }
-        else{
-            return ResponseModel.failResModel(0,"please input ExceptionId");
+            else{
+                return ResponseModel.failResModel(0,"please input ExceptionId");
         }
     }
 

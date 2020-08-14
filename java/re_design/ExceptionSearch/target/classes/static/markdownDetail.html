@@ -32,8 +32,9 @@
         <a href="/createMarkdown.html" target="_blank">
             <button class="btn btn-warning">写文章</button>
         </a>
-        <button class="btn btn-success favoriteBtn" onclick="addFavorite(location.href.toString().substr(location.href.indexOf("?")+1).split("=")[1])">收藏该文</button>
+        <button class="btn btn-success favoriteBtn" onclick="addFavorite(location.href.toString().substr(location.href.indexOf('?')+1).split('=')[1])">收藏该文</button>
         <button class="btn btn-info ApproveBtn">❤</button>
+        <button disabled class="btn btn-danger viewsTab">views:</button>
     </div>
     <div class="col-xs-4 text-right user" >
         <button  type="button" class="btn btn-default " data-toggle="modal"onclick="login()" data-target=".myModalLogin">登录</button>

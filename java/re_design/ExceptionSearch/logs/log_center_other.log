@@ -1,0 +1,246 @@
+2020-08-14 12:57:55.168 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-14 12:57:55.195 INFO  [localhost-startStop-1]:Refreshing WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 12:57:55 CST 2020]; root of context hierarchy
+2020-08-14 12:57:55.231 INFO  [localhost-startStop-1]:Registering annotated classes: [class xyz.zjhwork.springApplicationStarter.mvcConf.MvcConf]
+2020-08-14 12:57:55.499 WARN  [localhost-startStop-1]:Cannot enhance @Configuration bean definition 'mvcConf' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-08-14 12:57:56.318 INFO  [localhost-startStop-1]:Mapped "{[/isAproByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.isAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.318 INFO  [localhost-startStop-1]:Mapped "{[/addAproByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.ArpoveController.addAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.319 INFO  [localhost-startStop-1]:Mapped "{[/findApproCountByExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.findApproCountByExceptionId(java.lang.Integer)
+2020-08-14 12:57:56.319 INFO  [localhost-startStop-1]:Mapped "{[/findComment],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Comment> xyz.zjhwork.controller.CommentController.findComment(java.lang.Integer)
+2020-08-14 12:57:56.320 INFO  [localhost-startStop-1]:Mapped "{[/insertComment],methods=[POST]}" onto public int xyz.zjhwork.controller.CommentController.insertComment(java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.321 INFO  [localhost-startStop-1]:Mapped "{[/getException],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.getException(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.322 INFO  [localhost-startStop-1]:Mapped "{[/search],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.search(java.lang.String,java.lang.String,java.lang.Integer)
+2020-08-14 12:57:56.322 INFO  [localhost-startStop-1]:Mapped "{[/newException],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.newException(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.322 INFO  [localhost-startStop-1]:Mapped "{[/searchAssociation],methods=[GET]}" onto public java.util.List<java.lang.String> xyz.zjhwork.controller.ExceptionController.searchAssociation(java.lang.String)
+2020-08-14 12:57:56.322 INFO  [localhost-startStop-1]:Mapped "{[/searchCount],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.searchCount(java.lang.String,java.lang.String)
+2020-08-14 12:57:56.322 INFO  [localhost-startStop-1]:Mapped "{[/newListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.newListException()
+2020-08-14 12:57:56.323 INFO  [localhost-startStop-1]:Mapped "{[/myListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.myListException(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.324 INFO  [localhost-startStop-1]:Mapped "{[/deleteFavFromFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.deleteFavFromFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.324 INFO  [localhost-startStop-1]:Mapped "{[/isFavByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.FavController.isFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.324 INFO  [localhost-startStop-1]:Mapped "{[/findFavByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.FavController.findFavByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.324 INFO  [localhost-startStop-1]:Mapped "{[/addFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.addFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.325 INFO  [localhost-startStop-1]:Mapped "{[/findHistoryByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.HisController.findHistoryByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.328 INFO  [localhost-startStop-1]:Mapped "{[/]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.index()
+2020-08-14 12:57:56.328 INFO  [localhost-startStop-1]:Mapped "{[/favicon.ico]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.favicon()
+2020-08-14 12:57:56.331 INFO  [localhost-startStop-1]:Mapped "{[/signIn],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.register(java.lang.String,java.lang.String,java.lang.String)
+2020-08-14 12:57:56.331 INFO  [localhost-startStop-1]:Mapped "{[/isRegistered],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.isRegistered(java.lang.String)
+2020-08-14 12:57:56.331 INFO  [localhost-startStop-1]:Mapped "{[/userInfo],methods=[GET]}" onto public xyz.zjhwork.entity.User xyz.zjhwork.controller.UserController.userInfo(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.332 INFO  [localhost-startStop-1]:Mapped "{[/checkUser]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.checkUser(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.332 INFO  [localhost-startStop-1]:Mapped "{[/userExit],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userExit(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.332 INFO  [localhost-startStop-1]:Mapped "{[/userStatus],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userStatus(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.332 INFO  [localhost-startStop-1]:Mapped "{[/userInfoUpdate],methods=[POST]}" onto public int xyz.zjhwork.controller.UserController.userInfoUpdate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:57:56.377 INFO  [localhost-startStop-1]:Mapped URL path [/css/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:57:56.377 INFO  [localhost-startStop-1]:Mapped URL path [/js/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:57:56.377 INFO  [localhost-startStop-1]:Mapped URL path [/img/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:57:56.377 INFO  [localhost-startStop-1]:Mapped URL path [/theme/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:57:56.377 INFO  [localhost-startStop-1]:Mapped URL path [/*.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:57:56.512 INFO  [localhost-startStop-1]:HV000001: Hibernate Validator 6.1.5.Final
+2020-08-14 12:57:56.744 INFO  [localhost-startStop-1]:Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 12:57:55 CST 2020]; root of context hierarchy
+2020-08-14 12:57:56.860 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization completed in 1690 ms
+2020-08-14 12:58:00.680 INFO  [http-nio-9001-exec-7]:do addViewCount.....
+2020-08-14 12:58:00.681 INFO  [http-nio-9001-exec-7]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [98823]
+2020-08-14 12:58:00.681 INFO  [http-nio-9001-exec-7]:starting execute add Views....
+2020-08-14 12:58:00.991 INFO  [http-nio-9001-exec-7]:execute add result:[1]
+2020-08-14 12:58:40.365 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-14 12:58:40.399 INFO  [localhost-startStop-1]:Refreshing WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 12:58:40 CST 2020]; root of context hierarchy
+2020-08-14 12:58:40.446 INFO  [localhost-startStop-1]:Registering annotated classes: [class xyz.zjhwork.springApplicationStarter.mvcConf.MvcConf]
+2020-08-14 12:58:40.732 WARN  [localhost-startStop-1]:Cannot enhance @Configuration bean definition 'mvcConf' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-08-14 12:58:41.567 INFO  [localhost-startStop-1]:Mapped "{[/isAproByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.isAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.568 INFO  [localhost-startStop-1]:Mapped "{[/addAproByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.ArpoveController.addAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.568 INFO  [localhost-startStop-1]:Mapped "{[/findApproCountByExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.findApproCountByExceptionId(java.lang.Integer)
+2020-08-14 12:58:41.569 INFO  [localhost-startStop-1]:Mapped "{[/findComment],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Comment> xyz.zjhwork.controller.CommentController.findComment(java.lang.Integer)
+2020-08-14 12:58:41.570 INFO  [localhost-startStop-1]:Mapped "{[/insertComment],methods=[POST]}" onto public int xyz.zjhwork.controller.CommentController.insertComment(java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.572 INFO  [localhost-startStop-1]:Mapped "{[/getException],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.getException(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.573 INFO  [localhost-startStop-1]:Mapped "{[/search],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.search(java.lang.String,java.lang.String,java.lang.Integer)
+2020-08-14 12:58:41.573 INFO  [localhost-startStop-1]:Mapped "{[/newException],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.newException(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.573 INFO  [localhost-startStop-1]:Mapped "{[/searchCount],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.searchCount(java.lang.String,java.lang.String)
+2020-08-14 12:58:41.574 INFO  [localhost-startStop-1]:Mapped "{[/newListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.newListException()
+2020-08-14 12:58:41.574 INFO  [localhost-startStop-1]:Mapped "{[/myListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.myListException(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.574 INFO  [localhost-startStop-1]:Mapped "{[/searchAssociation],methods=[GET]}" onto public java.util.List<java.lang.String> xyz.zjhwork.controller.ExceptionController.searchAssociation(java.lang.String)
+2020-08-14 12:58:41.576 INFO  [localhost-startStop-1]:Mapped "{[/deleteFavFromFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.deleteFavFromFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.576 INFO  [localhost-startStop-1]:Mapped "{[/isFavByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.FavController.isFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.577 INFO  [localhost-startStop-1]:Mapped "{[/findFavByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.FavController.findFavByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.577 INFO  [localhost-startStop-1]:Mapped "{[/addFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.addFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.578 INFO  [localhost-startStop-1]:Mapped "{[/findHistoryByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.HisController.findHistoryByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.578 INFO  [localhost-startStop-1]:Mapped "{[/]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.index()
+2020-08-14 12:58:41.579 INFO  [localhost-startStop-1]:Mapped "{[/favicon.ico]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.favicon()
+2020-08-14 12:58:41.583 INFO  [localhost-startStop-1]:Mapped "{[/signIn],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.register(java.lang.String,java.lang.String,java.lang.String)
+2020-08-14 12:58:41.583 INFO  [localhost-startStop-1]:Mapped "{[/isRegistered],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.isRegistered(java.lang.String)
+2020-08-14 12:58:41.584 INFO  [localhost-startStop-1]:Mapped "{[/userInfo],methods=[GET]}" onto public xyz.zjhwork.entity.User xyz.zjhwork.controller.UserController.userInfo(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.584 INFO  [localhost-startStop-1]:Mapped "{[/checkUser]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.checkUser(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.584 INFO  [localhost-startStop-1]:Mapped "{[/userExit],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userExit(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.584 INFO  [localhost-startStop-1]:Mapped "{[/userStatus],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userStatus(javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.585 INFO  [localhost-startStop-1]:Mapped "{[/userInfoUpdate],methods=[POST]}" onto public int xyz.zjhwork.controller.UserController.userInfoUpdate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 12:58:41.647 INFO  [localhost-startStop-1]:Mapped URL path [/css/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:58:41.647 INFO  [localhost-startStop-1]:Mapped URL path [/js/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:58:41.647 INFO  [localhost-startStop-1]:Mapped URL path [/img/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:58:41.647 INFO  [localhost-startStop-1]:Mapped URL path [/theme/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:58:41.648 INFO  [localhost-startStop-1]:Mapped URL path [/*.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 12:58:41.789 INFO  [localhost-startStop-1]:HV000001: Hibernate Validator 6.1.5.Final
+2020-08-14 12:58:42.126 INFO  [localhost-startStop-1]:Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 12:58:40 CST 2020]; root of context hierarchy
+2020-08-14 12:58:42.283 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization completed in 1909 ms
+2020-08-14 12:58:43.838 INFO  [http-nio-9001-exec-2]:do addViewCount.....
+2020-08-14 12:58:43.839 INFO  [http-nio-9001-exec-2]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [98823]
+2020-08-14 12:58:43.840 INFO  [http-nio-9001-exec-2]:starting execute add Views....
+2020-08-14 12:58:44.218 INFO  [http-nio-9001-exec-2]:execute add result:[1]
+2020-08-14 13:01:30.384 INFO  [http-nio-9001-exec-1]:do addViewCount.....
+2020-08-14 13:01:30.384 INFO  [http-nio-9001-exec-1]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [98823]
+2020-08-14 13:01:30.385 INFO  [http-nio-9001-exec-1]:starting execute add Views....
+2020-08-14 13:01:30.600 INFO  [http-nio-9001-exec-1]:execute add result:[1]
+2020-08-14 13:02:10.830 INFO  [http-nio-9001-exec-6]:do addViewCount.....
+2020-08-14 13:02:10.831 INFO  [http-nio-9001-exec-6]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [98823]
+2020-08-14 13:02:10.832 INFO  [http-nio-9001-exec-6]:starting execute add Views....
+2020-08-14 13:02:11.141 INFO  [http-nio-9001-exec-6]:execute add result:[1]
+2020-08-14 13:07:16.478 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-14 13:07:16.516 INFO  [localhost-startStop-1]:Refreshing WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 13:07:16 CST 2020]; root of context hierarchy
+2020-08-14 13:07:16.573 INFO  [localhost-startStop-1]:Registering annotated classes: [class xyz.zjhwork.springApplicationStarter.mvcConf.MvcConf]
+2020-08-14 13:07:16.940 WARN  [localhost-startStop-1]:Cannot enhance @Configuration bean definition 'mvcConf' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-08-14 13:07:18.258 INFO  [localhost-startStop-1]:Mapped "{[/isAproByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.isAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.259 INFO  [localhost-startStop-1]:Mapped "{[/addAproByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.ArpoveController.addAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.260 INFO  [localhost-startStop-1]:Mapped "{[/findApproCountByExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.findApproCountByExceptionId(java.lang.Integer)
+2020-08-14 13:07:18.260 INFO  [localhost-startStop-1]:Mapped "{[/findComment],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Comment> xyz.zjhwork.controller.CommentController.findComment(java.lang.Integer)
+2020-08-14 13:07:18.261 INFO  [localhost-startStop-1]:Mapped "{[/insertComment],methods=[POST]}" onto public int xyz.zjhwork.controller.CommentController.insertComment(java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.262 INFO  [localhost-startStop-1]:Mapped "{[/getException],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.getException(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.263 INFO  [localhost-startStop-1]:Mapped "{[/search],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.search(java.lang.String,java.lang.String,java.lang.Integer)
+2020-08-14 13:07:18.263 INFO  [localhost-startStop-1]:Mapped "{[/newException],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.newException(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.263 INFO  [localhost-startStop-1]:Mapped "{[/searchCount],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.searchCount(java.lang.String,java.lang.String)
+2020-08-14 13:07:18.263 INFO  [localhost-startStop-1]:Mapped "{[/newListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.newListException()
+2020-08-14 13:07:18.264 INFO  [localhost-startStop-1]:Mapped "{[/myListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.myListException(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.264 INFO  [localhost-startStop-1]:Mapped "{[/searchAssociation],methods=[GET]}" onto public java.util.List<java.lang.String> xyz.zjhwork.controller.ExceptionController.searchAssociation(java.lang.String)
+2020-08-14 13:07:18.265 INFO  [localhost-startStop-1]:Mapped "{[/deleteFavFromFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.deleteFavFromFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.265 INFO  [localhost-startStop-1]:Mapped "{[/isFavByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.FavController.isFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.265 INFO  [localhost-startStop-1]:Mapped "{[/findFavByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.FavController.findFavByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.266 INFO  [localhost-startStop-1]:Mapped "{[/addFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.addFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.266 INFO  [localhost-startStop-1]:Mapped "{[/findHistoryByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.HisController.findHistoryByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.301 INFO  [localhost-startStop-1]:Mapped "{[/]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.index()
+2020-08-14 13:07:18.302 INFO  [localhost-startStop-1]:Mapped "{[/favicon.ico]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.favicon()
+2020-08-14 13:07:18.304 INFO  [localhost-startStop-1]:Mapped "{[/signIn],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.register(java.lang.String,java.lang.String,java.lang.String)
+2020-08-14 13:07:18.305 INFO  [localhost-startStop-1]:Mapped "{[/isRegistered],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.isRegistered(java.lang.String)
+2020-08-14 13:07:18.305 INFO  [localhost-startStop-1]:Mapped "{[/userInfo],methods=[GET]}" onto public xyz.zjhwork.entity.User xyz.zjhwork.controller.UserController.userInfo(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.305 INFO  [localhost-startStop-1]:Mapped "{[/checkUser]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.checkUser(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.305 INFO  [localhost-startStop-1]:Mapped "{[/userExit],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userExit(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.305 INFO  [localhost-startStop-1]:Mapped "{[/userStatus],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userStatus(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.306 INFO  [localhost-startStop-1]:Mapped "{[/userInfoUpdate],methods=[POST]}" onto public int xyz.zjhwork.controller.UserController.userInfoUpdate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:07:18.358 INFO  [localhost-startStop-1]:Mapped URL path [/css/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:07:18.358 INFO  [localhost-startStop-1]:Mapped URL path [/js/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:07:18.358 INFO  [localhost-startStop-1]:Mapped URL path [/img/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:07:18.358 INFO  [localhost-startStop-1]:Mapped URL path [/theme/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:07:18.359 INFO  [localhost-startStop-1]:Mapped URL path [/*.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:07:18.597 INFO  [localhost-startStop-1]:HV000001: Hibernate Validator 6.1.5.Final
+2020-08-14 13:07:18.895 INFO  [localhost-startStop-1]:Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 13:07:16 CST 2020]; root of context hierarchy
+2020-08-14 13:07:19.609 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization completed in 3124 ms
+2020-08-14 13:07:25.337 INFO  [http-nio-9001-exec-3]:do addViewCount.....
+2020-08-14 13:07:25.338 INFO  [http-nio-9001-exec-3]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [4484]
+2020-08-14 13:07:25.338 INFO  [http-nio-9001-exec-3]:starting execute add Views....
+2020-08-14 13:07:25.685 INFO  [http-nio-9001-exec-3]:execute add result:[1]
+2020-08-14 13:07:51.940 INFO  [http-nio-9001-exec-1]:do addViewCount.....
+2020-08-14 13:07:51.943 INFO  [http-nio-9001-exec-1]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [4484]
+2020-08-14 13:07:51.943 INFO  [http-nio-9001-exec-1]:starting execute add Views....
+2020-08-14 13:07:52.101 INFO  [http-nio-9001-exec-1]:execute add result:[1]
+2020-08-14 13:08:24.873 INFO  [http-nio-9001-exec-1]:do addViewCount.....
+2020-08-14 13:08:24.874 INFO  [http-nio-9001-exec-1]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [4484]
+2020-08-14 13:08:24.874 INFO  [http-nio-9001-exec-1]:starting execute add Views....
+2020-08-14 13:08:25.115 INFO  [http-nio-9001-exec-1]:execute add result:[1]
+2020-08-14 13:09:08.052 INFO  [http-nio-9001-exec-2]:do addViewCount.....
+2020-08-14 13:09:08.053 INFO  [http-nio-9001-exec-2]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [4484]
+2020-08-14 13:09:08.055 INFO  [http-nio-9001-exec-2]:starting execute add Views....
+2020-08-14 13:09:08.229 INFO  [http-nio-9001-exec-2]:execute add result:[1]
+2020-08-14 13:52:50.774 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-14 13:52:50.810 INFO  [localhost-startStop-1]:Refreshing WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 13:52:50 CST 2020]; root of context hierarchy
+2020-08-14 13:52:50.873 INFO  [localhost-startStop-1]:Registering annotated classes: [class xyz.zjhwork.springApplicationStarter.mvcConf.MvcConf]
+2020-08-14 13:52:51.223 WARN  [localhost-startStop-1]:Cannot enhance @Configuration bean definition 'mvcConf' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-08-14 13:52:52.172 INFO  [localhost-startStop-1]:Mapped "{[/isAproByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.isAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.173 INFO  [localhost-startStop-1]:Mapped "{[/addAproByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.ArpoveController.addAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.173 INFO  [localhost-startStop-1]:Mapped "{[/findApproCountByExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.findApproCountByExceptionId(java.lang.Integer)
+2020-08-14 13:52:52.174 INFO  [localhost-startStop-1]:Mapped "{[/findComment],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Comment> xyz.zjhwork.controller.CommentController.findComment(java.lang.Integer)
+2020-08-14 13:52:52.174 INFO  [localhost-startStop-1]:Mapped "{[/insertComment],methods=[POST]}" onto public int xyz.zjhwork.controller.CommentController.insertComment(java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.175 INFO  [localhost-startStop-1]:Mapped "{[/getException],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.getException(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.175 INFO  [localhost-startStop-1]:Mapped "{[/search],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.search(java.lang.String,java.lang.String,java.lang.Integer)
+2020-08-14 13:52:52.176 INFO  [localhost-startStop-1]:Mapped "{[/newException],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.newException(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.177 INFO  [localhost-startStop-1]:Mapped "{[/searchAssociation],methods=[GET]}" onto public java.util.List<java.lang.String> xyz.zjhwork.controller.ExceptionController.searchAssociation(java.lang.String)
+2020-08-14 13:52:52.177 INFO  [localhost-startStop-1]:Mapped "{[/searchCount],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.searchCount(java.lang.String,java.lang.String)
+2020-08-14 13:52:52.177 INFO  [localhost-startStop-1]:Mapped "{[/newListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.newListException()
+2020-08-14 13:52:52.177 INFO  [localhost-startStop-1]:Mapped "{[/myListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.myListException(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.178 INFO  [localhost-startStop-1]:Mapped "{[/deleteFavFromFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.deleteFavFromFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.179 INFO  [localhost-startStop-1]:Mapped "{[/isFavByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.FavController.isFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.179 INFO  [localhost-startStop-1]:Mapped "{[/findFavByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.FavController.findFavByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.179 INFO  [localhost-startStop-1]:Mapped "{[/addFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.addFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.180 INFO  [localhost-startStop-1]:Mapped "{[/findHistoryByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.HisController.findHistoryByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.197 INFO  [localhost-startStop-1]:Mapped "{[/]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.index()
+2020-08-14 13:52:52.197 INFO  [localhost-startStop-1]:Mapped "{[/favicon.ico]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.favicon()
+2020-08-14 13:52:52.211 INFO  [localhost-startStop-1]:Mapped "{[/signIn],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.register(java.lang.String,java.lang.String,java.lang.String)
+2020-08-14 13:52:52.212 INFO  [localhost-startStop-1]:Mapped "{[/isRegistered],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.isRegistered(java.lang.String)
+2020-08-14 13:52:52.213 INFO  [localhost-startStop-1]:Mapped "{[/userInfo],methods=[GET]}" onto public xyz.zjhwork.entity.User xyz.zjhwork.controller.UserController.userInfo(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.213 INFO  [localhost-startStop-1]:Mapped "{[/checkUser]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.checkUser(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.214 INFO  [localhost-startStop-1]:Mapped "{[/userExit],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userExit(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.214 INFO  [localhost-startStop-1]:Mapped "{[/userStatus],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userStatus(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.214 INFO  [localhost-startStop-1]:Mapped "{[/userInfoUpdate],methods=[POST]}" onto public int xyz.zjhwork.controller.UserController.userInfoUpdate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:52:52.291 INFO  [localhost-startStop-1]:Mapped URL path [/css/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:52:52.291 INFO  [localhost-startStop-1]:Mapped URL path [/js/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:52:52.291 INFO  [localhost-startStop-1]:Mapped URL path [/img/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:52:52.291 INFO  [localhost-startStop-1]:Mapped URL path [/theme/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:52:52.292 INFO  [localhost-startStop-1]:Mapped URL path [/*.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:52:52.438 INFO  [localhost-startStop-1]:HV000001: Hibernate Validator 6.1.5.Final
+2020-08-14 13:52:52.675 INFO  [localhost-startStop-1]:Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 13:52:50 CST 2020]; root of context hierarchy
+2020-08-14 13:52:52.924 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization completed in 2147 ms
+2020-08-14 13:53:00.924 INFO  [http-nio-9001-exec-1]:do addViewCount.....
+2020-08-14 13:53:00.936 INFO  [http-nio-9001-exec-1]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [16326]
+2020-08-14 13:53:00.937 INFO  [http-nio-9001-exec-1]:starting execute add Views....
+2020-08-14 13:53:01.259 INFO  [http-nio-9001-exec-1]:execute add result:[true]
+2020-08-14 13:53:04.215 INFO  [http-nio-9001-exec-10]:do addViewCount.....
+2020-08-14 13:53:04.217 INFO  [http-nio-9001-exec-10]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [16326]
+2020-08-14 13:53:04.218 INFO  [http-nio-9001-exec-10]:starting execute add Views....
+2020-08-14 13:53:04.367 INFO  [http-nio-9001-exec-10]:execute add result:[true]
+2020-08-14 13:53:28.878 INFO  [http-nio-9001-exec-9]:do addViewCount.....
+2020-08-14 13:53:28.879 INFO  [http-nio-9001-exec-9]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [16326]
+2020-08-14 13:53:28.880 INFO  [http-nio-9001-exec-9]:starting execute add Views....
+2020-08-14 13:53:29.043 INFO  [http-nio-9001-exec-9]:execute add result:[true]
+2020-08-14 13:53:50.936 INFO  [http-nio-9001-exec-2]:do addViewCount.....
+2020-08-14 13:53:50.938 INFO  [http-nio-9001-exec-2]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [16326]
+2020-08-14 13:53:50.939 INFO  [http-nio-9001-exec-2]:starting execute add Views....
+2020-08-14 13:53:51.058 INFO  [http-nio-9001-exec-2]:execute add result:[true]
+2020-08-14 13:53:56.491 INFO  [http-nio-9001-exec-5]:do addViewCount.....
+2020-08-14 13:53:56.492 INFO  [http-nio-9001-exec-5]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [null]
+2020-08-14 13:53:56.492 INFO  [http-nio-9001-exec-5]:starting execute add Views....
+2020-08-14 13:53:56.492 INFO  [http-nio-9001-exec-5]:execute add result:[false]
+2020-08-14 13:59:06.326 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization started
+2020-08-14 13:59:06.358 INFO  [localhost-startStop-1]:Refreshing WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 13:59:06 CST 2020]; root of context hierarchy
+2020-08-14 13:59:06.410 INFO  [localhost-startStop-1]:Registering annotated classes: [class xyz.zjhwork.springApplicationStarter.mvcConf.MvcConf]
+2020-08-14 13:59:06.701 WARN  [localhost-startStop-1]:Cannot enhance @Configuration bean definition 'mvcConf' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-08-14 13:59:07.529 INFO  [localhost-startStop-1]:Mapped "{[/isAproByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.isAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.532 INFO  [localhost-startStop-1]:Mapped "{[/addAproByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.ArpoveController.addAproByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.533 INFO  [localhost-startStop-1]:Mapped "{[/findApproCountByExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.ArpoveController.findApproCountByExceptionId(java.lang.Integer)
+2020-08-14 13:59:07.535 INFO  [localhost-startStop-1]:Mapped "{[/findComment],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Comment> xyz.zjhwork.controller.CommentController.findComment(java.lang.Integer)
+2020-08-14 13:59:07.536 INFO  [localhost-startStop-1]:Mapped "{[/insertComment],methods=[POST]}" onto public int xyz.zjhwork.controller.CommentController.insertComment(java.lang.Integer,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.539 INFO  [localhost-startStop-1]:Mapped "{[/getException],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.getException(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.540 INFO  [localhost-startStop-1]:Mapped "{[/search],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.search(java.lang.String,java.lang.String,java.lang.Integer)
+2020-08-14 13:59:07.541 INFO  [localhost-startStop-1]:Mapped "{[/newException],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.newException(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.544 INFO  [localhost-startStop-1]:Mapped "{[/searchAssociation],methods=[GET]}" onto public java.util.List<java.lang.String> xyz.zjhwork.controller.ExceptionController.searchAssociation(java.lang.String)
+2020-08-14 13:59:07.544 INFO  [localhost-startStop-1]:Mapped "{[/searchCount],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.ExceptionController.searchCount(java.lang.String,java.lang.String)
+2020-08-14 13:59:07.545 INFO  [localhost-startStop-1]:Mapped "{[/newListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.newListException()
+2020-08-14 13:59:07.545 INFO  [localhost-startStop-1]:Mapped "{[/myListException],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.ExceptionController.myListException(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.547 INFO  [localhost-startStop-1]:Mapped "{[/isFavByUsernameAndExceptionId],methods=[GET]}" onto public int xyz.zjhwork.controller.FavController.isFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.549 INFO  [localhost-startStop-1]:Mapped "{[/findFavByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.FavController.findFavByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.549 INFO  [localhost-startStop-1]:Mapped "{[/addFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.addFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.549 INFO  [localhost-startStop-1]:Mapped "{[/deleteFavFromFavByUsernameAndExceptionId],methods=[POST]}" onto public int xyz.zjhwork.controller.FavController.deleteFavFromFavByUsernameAndExceptionId(java.lang.Integer,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.550 INFO  [localhost-startStop-1]:Mapped "{[/findHistoryByUsername],methods=[GET]}" onto public java.util.List<xyz.zjhwork.entity.Exception> xyz.zjhwork.controller.HisController.findHistoryByUsername(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.551 INFO  [localhost-startStop-1]:Mapped "{[/]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.index()
+2020-08-14 13:59:07.552 INFO  [localhost-startStop-1]:Mapped "{[/favicon.ico]}" onto public java.lang.String xyz.zjhwork.controller.IndexController.favicon()
+2020-08-14 13:59:07.556 INFO  [localhost-startStop-1]:Mapped "{[/signIn],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.register(java.lang.String,java.lang.String,java.lang.String)
+2020-08-14 13:59:07.557 INFO  [localhost-startStop-1]:Mapped "{[/isRegistered],methods=[GET]}" onto public int xyz.zjhwork.controller.UserController.isRegistered(java.lang.String)
+2020-08-14 13:59:07.558 INFO  [localhost-startStop-1]:Mapped "{[/userInfo],methods=[GET]}" onto public xyz.zjhwork.entity.User xyz.zjhwork.controller.UserController.userInfo(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.558 INFO  [localhost-startStop-1]:Mapped "{[/checkUser]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.checkUser(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.558 INFO  [localhost-startStop-1]:Mapped "{[/userExit],methods=[POST]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userExit(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.558 INFO  [localhost-startStop-1]:Mapped "{[/userStatus],methods=[GET]}" onto public xyz.zjhwork.resmodel.ResponseModel xyz.zjhwork.controller.UserController.userStatus(javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.558 INFO  [localhost-startStop-1]:Mapped "{[/userInfoUpdate],methods=[POST]}" onto public int xyz.zjhwork.controller.UserController.userInfoUpdate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-08-14 13:59:07.610 INFO  [localhost-startStop-1]:Mapped URL path [/css/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:59:07.611 INFO  [localhost-startStop-1]:Mapped URL path [/js/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:59:07.611 INFO  [localhost-startStop-1]:Mapped URL path [/img/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:59:07.612 INFO  [localhost-startStop-1]:Mapped URL path [/theme/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:59:07.613 INFO  [localhost-startStop-1]:Mapped URL path [/*.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-08-14 13:59:07.720 INFO  [localhost-startStop-1]:HV000001: Hibernate Validator 6.1.5.Final
+2020-08-14 13:59:08.026 INFO  [localhost-startStop-1]:Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcherServlet-servlet': startup date [Fri Aug 14 13:59:06 CST 2020]; root of context hierarchy
+2020-08-14 13:59:08.145 INFO  [localhost-startStop-1]:FrameworkServlet 'dispatcherServlet': initialization completed in 1816 ms
+2020-08-14 14:13:17.075 INFO  [http-nio-9001-exec-6]:do addViewCount.....
+2020-08-14 14:13:17.079 INFO  [http-nio-9001-exec-6]:api about /getException has visited form ip :[127.0.0.1],visited exception id is [85277]
+2020-08-14 14:13:17.084 INFO  [http-nio-9001-exec-6]:starting execute add Views....
+2020-08-14 14:13:17.284 INFO  [http-nio-9001-exec-6]:execute add result:[true]

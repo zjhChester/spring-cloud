@@ -28,6 +28,7 @@ import java.util.Properties;
 @EnableWebMvc
 @ComponentScan("xyz.zjhwork")
 @EnableAspectJAutoProxy
+
 public class MvcConf implements WebMvcConfigurer {
 
     @Override
