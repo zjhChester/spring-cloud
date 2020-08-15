@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface FavDao {
     //查询自己的收藏
-    @Select("SELECT a.id,a.title from exception a,favorite b where b.userid = #{username} and a.id=b.exceptionId order by b.time desc")
+    @Select("SELECT a.id,a.title,b.time createTime from exception a,favorite b where b.userid = #{username} and a.id=b.exceptionId order by b.time desc")
     List<Exception> findFavByUsername(@Param("username")String username);
     //查询博文是否收藏
     @Select("select count(id) from favorite where userId = #{userId} and exceptionId = #{exceptionId}")

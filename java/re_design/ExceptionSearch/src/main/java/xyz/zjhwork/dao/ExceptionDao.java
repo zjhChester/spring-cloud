@@ -37,7 +37,7 @@ public interface ExceptionDao {
     List<Exception> newListException();
 
     //我的文章
-    @Select("select id,title,createTime from exception where  author = #{username} order by id desc limit 0,40 ")
+    @Select("select id,title,createTime from exception where  author = #{username} order by id desc ")
     List<Exception> myListException(@Param("username") String username);
 
     //查询单个 通过id
