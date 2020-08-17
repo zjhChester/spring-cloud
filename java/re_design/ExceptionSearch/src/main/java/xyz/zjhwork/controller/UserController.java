@@ -1,7 +1,6 @@
 package xyz.zjhwork.controller;
 
 
-import com.sun.istack.internal.NotNull;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +31,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping("/checkUser")
-    public ResponseModel checkUser(@NotNull String username, @NotNull String password, HttpServletRequest request) {
+    public ResponseModel checkUser( String username,  String password, HttpServletRequest request) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(Objects.nonNull(password)? DigestUtils.sha1Hex(password):"");
@@ -73,6 +72,7 @@ public class UserController {
             List<UserResModel> userResModels = UserResModel.getUserResModels();
             UserResModel userResModel = UserResModel.getUserResModel();
             userResModel.setUsername(request.getSession().getAttribute("loginUser")+"");
+            userResModel.setCurrTime(System.currentTimeMillis());
             userResModels.add(userResModel);
             return ResponseModel.successResModel(1,"success",userResModels.toArray());
     }

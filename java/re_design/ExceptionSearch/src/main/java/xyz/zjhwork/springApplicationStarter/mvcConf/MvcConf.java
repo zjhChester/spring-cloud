@@ -82,10 +82,6 @@ public class MvcConf implements WebMvcConfigurer {
             dataSource.setPassword(pop.getProperty("jdbc.password"));
             dataSource.setUrl(pop.getProperty("jdbc.url"));
             dataSource.setDefaultAutoCommit(true);
-            dataSource.setPoolMaximumActiveConnections(20);
-            dataSource.setPoolMaximumIdleConnections(0);
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

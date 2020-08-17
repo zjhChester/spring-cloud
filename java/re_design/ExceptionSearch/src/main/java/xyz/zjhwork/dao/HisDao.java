@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface HisDao {
     //查询浏览历史  八条记录
-    @Select("SELECT a.id,a.title,b.time createTime from exception a,history b where b.userId =#{username} and a.id=b.exceptionId order by b.time desc")
+    @Select("SELECT a.id,a.title,b.time createTime from exception a,history b where b.userId =#{username} and a.id=b.exceptionId and a.delStatus=0 order by b.time desc")
     List<Exception> findHistoryByUsername(@Param("username") String username);
 
     //新增浏览历史

@@ -186,12 +186,13 @@
     }
     function loadException(id){
         $.ajax({
-            url:"/getException",
+            url:"/exception/"+id,
             type:"GET",
-            data:{"id":id},
             success:function(res){
                 var e = JSON.parse(res);
                 if(e.code == 1){
+                    $("title").html(e.result[0].title)
+                    $(".keywords").html(e.result[0].title)
                     $("#title").html(e.result[0].title);
                     $("#author").html("作者："+e.result[0].author);
                     $("#type").html("标签："+e.result[0].type);
@@ -202,6 +203,7 @@
                 }else{
                     alert("没有当前博文哦！原因是:"+e.desc)
                     $(".load").hide()
+                    window.location.href="index.html";
                 }
             }
         })

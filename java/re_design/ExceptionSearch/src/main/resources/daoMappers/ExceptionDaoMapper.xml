@@ -23,6 +23,7 @@
             <if test="type != null and type!=''">
                 and  exception.type = #{type}
             </if>
+            and delStatus=0
         </where>
     </select>
 
@@ -84,7 +85,8 @@
 
             </if>
         </where>
-        and  a.id= b.id
+        and b.id = a.id
+        and b.delStatus=0
         limit #{currIndex} , 20
     </select>
 
@@ -116,6 +118,7 @@
                 </foreach>
             </if>
         </where>
+        and delStatus=0
     </select>
     <select id="searchAssociation" resultType="xyz.zjhwork.entity.Exception">
         select title from exception where id in (
@@ -127,6 +130,7 @@
                     title like concat('',#{item},'%')
                 </foreach>
             </if>
+            and delStatus=0
             order by length(title)
         </where>
         )

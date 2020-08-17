@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <title>个人中心</title>
     <!-- import CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/element.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <style type="text/css">
         *::-webkit-scrollbar {
             display: none
+        }
+        *{
+            padding:0;
+            margin: 0;
         }
     </style>
 </head>
@@ -17,7 +21,8 @@
 <body>
 <div id="app">
     <!-- headr -->
-    <el-menu default-active="3" class="el-menu-demo" mode="horizontal" @select="handleSelect" style="box-shadow: #DDDDDD 0px 1px 0px;">
+    <el-menu default-active="3" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+             style="box-shadow: #DDDDDD 0px 1px 0px;height:60px;">
         <el-menu-item index="1">首页</el-menu-item>
 
         <el-menu-item index="2">写文章</el-menu-item>
@@ -30,23 +35,24 @@
     </el-menu>
 
     <!-- body -->
-    <div style="width: 80%;margin: 0 auto;">
-        <el-row :gutter="40"  >
+    <div :style="'width: 80%;margin: 0 auto;height:'+bodyHeight+'px;y-overflow:scroll;' ">
+        <el-row :gutter="40">
             <el-col :span="16">
                 <!-- 最新文章模块 -->
-                <div class="grid-content bg-purple" v-loading="new_exception_loading"  element-loading-text="最新文章拼命加载中~"
-                     element-loading-spinner="el-icon-loading"
-                     >
+                <div class="grid-content bg-purple" v-loading="new_exception_loading"
+                     element-loading-text="最新文章拼命加载中~" element-loading-spinner="el-icon-loading">
                     <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left:8%;margin:30px;">
                         <el-breadcrumb-item>个人中心</el-breadcrumb-item>
                         <el-breadcrumb-item>最新文章</el-breadcrumb-item>
                     </el-breadcrumb>
-                    <el-timeline :style="'max-height:'+ (windowHeight-130)+'px;min-height:'+ (windowHeight-130)+'px;overflow-y: scroll;border-right: solid 1px lightgray;padding-right: 20px;'">
-                        <el-timeline-item :timestamp="item.createTime" placement="top" v-for="(item,i) in new_exception" >
-                            <el-card  style="cursor: pointer">
+                    <el-timeline
+                            :style="'max-height:'+ (windowHeight-130)+'px;min-height:'+ (windowHeight-130)+'px;overflow-y: scroll;border-right: solid 1px lightgray;padding-right: 20px;'">
+                        <el-timeline-item :timestamp="item.createTime" placement="top"
+                                          v-for="(item,i) in new_exception">
+                            <el-card style="cursor: pointer">
                                 <div @click="toExceptionDetail(item.id)">
-                                <h4>{{item.title}}</h4>
-                                <p>{{item.author}} 提交于 {{item.createTime}}</p>
+                                    <h4>{{item.title}}</h4>
+                                    <p>{{item.author}} 提交于 {{item.createTime}}</p>
                                 </div>
                             </el-card>
                         </el-timeline-item>
@@ -54,21 +60,23 @@
                     </el-timeline>
                 </div>
                 <!-- 我的文章模块 -->
-                <div v-loading="my_exception_loading"  element-loading-text="我的文章拼命加载中~"
-                     element-loading-spinner="el-icon-loading"
-                      class="grid-content bg-purple" style="border-top: lightgray 1px solid;margin-top: 20px;">
+                <div v-loading="my_exception_loading" element-loading-text="我的文章拼命加载中~"
+                     element-loading-spinner="el-icon-loading" class="grid-content bg-purple"
+                     style="border-top: lightgray 1px solid;margin-top: 20px;">
                     <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left:8%;margin:30px;">
                         <el-breadcrumb-item>个人中心</el-breadcrumb-item>
                         <el-breadcrumb-item>我的文章</el-breadcrumb-item>
                     </el-breadcrumb>
-                    <el-timeline :style="'max-height:'+ (windowHeight-130)+'px;overflow-y: scroll;min-height:'+ (windowHeight-130)+'px;border-right: lightgray 1px solid;padding-right: 20px;'">
-                        <el-timeline-item :timestamp="item.createTime" placement="top" v-for="(item,i) in my_exception" >
-                            <el-card style="cursor: pointer"  >
-                                <div @click="toExceptionDetail(item.id)">
+                    <el-timeline
+                            :style="'max-height:'+ (windowHeight-130)+'px;overflow-y: scroll;min-height:'+ (windowHeight-130)+'px;border-right: lightgray 1px solid;padding-right: 20px;'">
+                        <el-timeline-item :timestamp="item.createTime" placement="top"
+                                          v-for="(item,i) in my_exception">
+                            <el-card style="cursor: pointer">
+                                <div @click="toExceptionDetail(item.id)" >
                                     <h4>{{item.title}}</h4>
                                     <p>{{account.nickname}} 提交于 {{item.createTime}}</p>
                                 </div>
-
+                                <el-button style="position: absolute;right: 20px;top: 45%;" type="danger" @click="delException(item.id,item.title)">删除</el-button>
                             </el-card>
                         </el-timeline-item>
 
@@ -84,9 +92,8 @@
                     <el-collapse v-model="activeNames" @change="handleChange">
                         <el-collapse-item title="我的信息" name="1">
                             <!-- 我的信息模块 -->
-                            <div class="grid-content bg-purple" v-loading="my_info_loading"  element-loading-text="我的信息拼命加载中~"
-                                 element-loading-spinner="el-icon-loading"
-                                 >
+                            <div class="grid-content bg-purple" v-loading="my_info_loading"
+                                 element-loading-text="我的信息拼命加载中~" element-loading-spinner="el-icon-loading">
                                 <div>账号：{{account.username}}</div>
                                 <hr style="border: solid 0.5px lightgray;width: 90%;">
                                 <div>昵称：{{account.nickname}}</div>
@@ -98,25 +105,31 @@
                             </div>
                         </el-collapse-item>
                         <el-collapse-item title="我的收藏" name="2">
-                            <div class="fav_activities" v-loading="my_fav_loading"  element-loading-text="我的收藏拼命加载中~"
-                                 element-loading-spinner="el-icon-loading"
-                                >
-                                <el-timeline :style="'max-height:'+ (windowHeight-210)+'px;overflow-y: scroll;min-height:'+ (windowHeight-210)+'px;'">
-                                    <el-timeline-item v-for="(activity, index) in fav_activities" :key="index" :icon="activity.icon" :type="activity.type"
-                                                      :color="activity.color" :size="activity.size" :timestamp="activity.createTime">
-                                        <div  @click="toExceptionDetail(activity.id)" style="color:dodgerblue;text-decoration: underline;cursor: pointer">{{activity.title}}</div>
+                            <div class="fav_activities" v-loading="my_fav_loading" element-loading-text="我的收藏拼命加载中~"
+                                 element-loading-spinner="el-icon-loading">
+                                <el-timeline
+                                        :style="'max-height:'+ (windowHeight-210)+'px;overflow-y: scroll;min-height:'+ (windowHeight-210)+'px;'">
+                                    <el-timeline-item v-for="(activity, index) in fav_activities" :key="index"
+                                                      :icon="activity.icon" :type="activity.type" :color="activity.color"
+                                                      :size="activity.size" :timestamp="activity.createTime">
+                                        <div @click="toExceptionDetail(activity.id)"
+                                             style="color:dodgerblue;text-decoration: underline;cursor: pointer">
+                                            {{activity.title}}</div>
                                     </el-timeline-item>
                                 </el-timeline>
                             </div>
                         </el-collapse-item>
                         <el-collapse-item title="访问足迹" name="3">
-                            <div class="fav_activities" v-loading="my_history_loading"  element-loading-text="我的足迹拼命加载中~"
-                                 element-loading-spinner="el-icon-loading"
-                                 >
-                                <el-timeline :style="'max-height:'+ (windowHeight-220)+'px;overflow-y: scroll;min-height:'+ (windowHeight-220)+'px;'">
-                                    <el-timeline-item v-for="(activity, index) in history_activities" :key="index" :icon="activity.icon" :type="activity.type"
-                                                      :color="activity.color" :size="activity.size" :timestamp="activity.createTime">
-                                        <div  @click="toExceptionDetail(activity.id)" style="color:darkgoldenrod;text-decoration: underline;cursor: pointer">{{activity.title}}</div>
+                            <div class="fav_activities" v-loading="my_history_loading"
+                                 element-loading-text="我的足迹拼命加载中~" element-loading-spinner="el-icon-loading">
+                                <el-timeline
+                                        :style="'max-height:'+ (windowHeight-220)+'px;overflow-y: scroll;min-height:'+ (windowHeight-220)+'px;'">
+                                    <el-timeline-item v-for="(activity, index) in history_activities" :key="index"
+                                                      :icon="activity.icon" :type="activity.type" :color="activity.color"
+                                                      :size="activity.size" :timestamp="activity.createTime">
+                                        <div @click="toExceptionDetail(activity.id)"
+                                             style="color:darkgoldenrod;text-decoration: underline;cursor: pointer">
+                                            {{activity.title}}</div>
                                     </el-timeline-item>
                                 </el-timeline>
                             </div>
@@ -128,12 +141,13 @@
         </el-row>
 
     </div>
-    <div class="modal fade myModalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal fade myModalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header"style="background:#204d74;color: white">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title myModalLabel" ><span>用户退出</span></h4>
+                <div class="modal-header" style="background:#204d74;color: white">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title myModalLabel"><span>用户退出</span></h4>
                 </div>
                 <div class="modal-body myModal_content">
                     <span>确认退出吗？</span>
@@ -164,14 +178,15 @@
 
     new Vue({
         el: '#app',
-        data: function() {
+        data: function () {
             return {
                 //框架参数
                 activeNames: ['1', '2', '3'],
                 windowHeight: 0,
+                bodyHeight:0,
                 //我的收藏参数
                 fav_activities: [{
-                    id:'',
+                    id: '',
                     title: '支持使用图标',
                     createTime: '2018-04-12 20:46',
                     size: 'large',
@@ -180,7 +195,7 @@
                 }],
                 //历史记录参数
                 history_activities: [{
-                    id:'',
+                    id: '',
                     title: '支持使用图标',
                     createTime: '2018-04-12 20:46',
                     size: 'large',
@@ -211,24 +226,52 @@
 
                 }],
                 //loading状态
-                new_exception_loading:false,
-                my_exception_loading:false,
-                my_info_loading:false,
-                my_fav_loading:false,
-                my_history_loading:false
+                new_exception_loading: false,
+                my_exception_loading: false,
+                my_info_loading: false,
+                my_fav_loading: false,
+                my_history_loading: false
             }
         },
         methods: {
+            //文章删除
+            delException(id, title) {
+                this.$confirm('确认删除《' + title + '》该文章吗?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning',
+                    center: true
+                }).then(() => {
+                    axios({
+                              url: this.url + "/exception/"+id,
+                    method: "DELETE"
+            }).then(response => {
+                    if (response.data.code == 1) {
+                    this.$message.success(response.data.desc)
+                    //刷新数据
+                    this.refreshData()
+                } else {
+                        //错误提示
+                    this.$message.error(response.data.desc)
+                }
+            })
+            .catch((error) => {
+                    this.$message.error(error)
+            })
 
+            }).catch(() => {
+
+                });
+            },
             //框架方法
             handleSelect(key, keyPath) {
-                if(key==1){
-                    window.location.href="index.html";
+                if (key == 1) {
+                    window.location.href = "index.html";
                 }
-                if(key==2){
-                    window.location.href="createMarkdown.html";
+                if (key == 2) {
+                    window.location.href = "createMarkdown.html";
                 }
-                if(key=="2-2"){
+                if (key == "2-2") {
                     this.$confirm('确认退出吗?', '提示', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
@@ -238,32 +281,11 @@
 
                 }).catch(() => {
 
-                });
+                    });
                 }
-                if(key=="2-1"){
-                    // this.update_info()
-                }
+
             },
             handleChange(val) {
-            },
-            //信息修改请求
-            update_info() {
-                this.$prompt('请输入邮箱', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
-                    inputErrorMessage: '邮箱格式不正确'
-                }).then(({ value }) => {
-                    this.$message({
-                    type: 'success',
-                    message: '你的邮箱是: ' + value
-                });
-            }).catch(() => {
-                    this.$message({
-                    type: 'info',
-                    message: '取消输入'
-                });
-            });
             },
             //退出登录请求
             checkUser() {
@@ -271,16 +293,29 @@
                     url: this.url + "/userExit",
                     method: "POST"
                 }).then(response => {
-                    if(response.data.code==1){
-                        this.$message.success("下线成功！")
-                    window.location.href="index.html"
-                }else{
+                    if (response.data.code == 1) {
+                    this.$message.success("下线成功！")
+                    window.location.href = "index.html"
+                } else {
                     this.$message.error("下线失败！")
                 }
-                })
+            })
             .catch((error) => {
                     this.$message.error(error)
             })
+            },
+            //刷新页面
+            refreshData(){
+                this.new_exception_loading = true
+                this.my_exception_loading = true
+                this.my_info_loading = true
+                this.my_fav_loading = true
+                this.my_history_loading = true
+                this.myInfo();
+                this.newListLoading();
+                this.myListLoading();
+                this.myFavoriteLoading();
+                this.historyLoading();
             },
             //检查登录状态
             createMarkdownUserStatus() {
@@ -288,23 +323,18 @@
                     url: this.url + "/userStatus",
                     method: "GET"
                 }).then(response => {
-                //如果已登录，则进行页面初始化
-                    if(response.data.code == 1){
-                    this.new_exception_loading=true
-                    this.my_exception_loading=true
-                    this.my_info_loading=true
-                    this.my_fav_loading=true
-                    this.my_history_loading=true
-                    this.myInfo();
-                    this.newListLoading();
-                    this.myListLoading();
-                    this.myFavoriteLoading();
-                    this.historyLoading();
-                }else{
-                        //如果未登录，跳转到index去
-                    window.location.href="index.html";
+
+                    //如果已登录，则进行页面初始化
+                    if (response.data.code == 1) {
+                    //修改网页名
+                    $("title").html("欢迎回来！" + response.data.result[0].username)
+                    this.refreshData()
+
+                } else {
+                    //如果未登录，跳转到index去
+                    window.location.href = "index.html";
                 }
-                })
+            })
             .catch((error) => {
                     this.$message.error(error)
             })
@@ -315,13 +345,13 @@
                     url: this.url + "/newListException",
                     method: "GET"
                 }).then(response => {
-                    this.new_exception=[];
-                    this.new_exception=response.data;
-                    this.new_exception_loading=false;
-                    this.$notify.success("最新文章加载成功！")
-                })
+                    this.new_exception = [];
+                this.new_exception = response.data;
+                this.new_exception_loading = false;
+                this.$notify.success("最新文章加载成功！")
+            })
             .catch((error) => {
-                this.new_exception_loading=false;
+                    this.new_exception_loading = false;
                 this.$message.error(error)
 
             })
@@ -332,14 +362,14 @@
                     url: this.url + "/myListException",
                     method: "GET"
                 }).then(response => {
-                    this.my_exception=[];
-                this.my_exception=response.data;
-                this.my_exception_loading=false;
+                    this.my_exception = [];
+                this.my_exception = response.data;
+                this.my_exception_loading = false;
                 this.$notify.success("我的文章加载成功！")
-                })
+            })
             .catch((error) => {
-                    this.my_exception_loading=false;
-                    this.$message.error(error)
+                    this.my_exception_loading = false;
+                this.$message.error(error)
             })
             },
             //加载用户信息
@@ -348,18 +378,18 @@
                     url: this.url + "/userInfo",
                     method: "GET"
                 }).then(response => {
-                    this.account={
+                    this.account = {
                     username: response.data.username,
                     nickname: response.data.nickName,
                     gender: response.data.gender,
                     email: response.data.email
                 }
-                this.my_info_loading=false;
+                this.my_info_loading = false;
                 this.$notify.success("我的信息加载成功！")
-                })
+            })
             .catch((error) => {
-                    this.my_info_loading=false;
-                    this.$message.error(error)
+                    this.my_info_loading = false;
+                this.$message.error(error)
             })
             },
             //加载我的收藏
@@ -369,24 +399,24 @@
                     url: this.url + "/findFavByUsername",
                     method: "GET"
                 }).then(response => {
-                    this.fav_activities= [];
-                    response.data.forEach(function (item) {
-                        that.fav_activities.push({
-                            id:item.id,
-                            title: item.title,
-                            createTime: item.createTime,
-                            size: 'large',
-                            type: 'primary',
-                            icon: 'el-icon-star-off'
-                        })
-
+                    this.fav_activities = [];
+                response.data.forEach(function (item) {
+                    that.fav_activities.push({
+                        id: item.id,
+                        title: item.title,
+                        createTime: item.createTime,
+                        size: 'large',
+                        type: 'primary',
+                        icon: 'el-icon-star-off'
                     })
-                this.my_fav_loading=false;
-                this.$notify.success("我的收藏加载成功！")
+
                 })
+                this.my_fav_loading = false;
+                this.$notify.success("我的收藏加载成功！")
+            })
             .catch((error) => {
-                    this.my_fav_loading=false;
-                    this.$message.error(error)
+                    this.my_fav_loading = false;
+                this.$message.error(error)
             })
             },
             //加载历史记录
@@ -396,35 +426,36 @@
                     url: this.url + "/findHistoryByUsername",
                     method: "GET"
                 }).then(response => {
-                    this.history_activities= [];
+                    this.history_activities = [];
                 response.data.forEach(function (item) {
                     that.history_activities.push({
-                        id:item.id,
+                        id: item.id,
                         title: item.title,
                         createTime: item.createTime,
                         size: 'large',
-                        color:'darkgoldenrod',
+                        color: 'darkgoldenrod',
                         icon: 'el-icon-view'
                     })
                 })
-                this.my_history_loading=false;
+                this.my_history_loading = false;
                 this.$notify.success("我的历史记录加载成功！")
-                })
+            })
             .catch((error) => {
-                    this.my_history_loading=false;
-                    this.$message.error(error)
+                    this.my_history_loading = false;
+                this.$message.error(error)
             })
             },
             //链接文章详情
-            toExceptionDetail(id){
-                window.open("markdownDetail.html?id="+id)
+            toExceptionDetail(id) {
+                window.open("markdownDetail.html?id=" + id)
             }
 
         },
         //初始化
-        created: function() {
+        created: function () {
             //窗体高度自适应
-            this.windowHeight = Number(window.innerHeight / 2);
+            this.windowHeight = Number((window.innerHeight-60) / 2);
+            this.bodyHeight = Number((window.innerHeight-100))
             //页面初始化
             this.createMarkdownUserStatus()
         }

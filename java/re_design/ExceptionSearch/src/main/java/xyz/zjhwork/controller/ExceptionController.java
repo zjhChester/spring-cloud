@@ -1,11 +1,9 @@
 package xyz.zjhwork.controller;
 
-import com.sun.istack.internal.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import xyz.zjhwork.aop.interfaces.AddViewsCount;
 import xyz.zjhwork.entity.Exception;
 import xyz.zjhwork.entity.History;
@@ -163,7 +161,7 @@ public class ExceptionController {
             if(i==0){
                 return ResponseModel.failResModel(0,"create Exception fail!");
             }else{
-                return ResponseModel.successResModel(1,"SUCCESS",null);
+                return ResponseModel.successResModel(exceptionService.findException(exception).get(0).getId(),"SUCCESS",null);
             }
         }else{
             return ResponseModel.failResModel(0,"please input args!");
@@ -173,8 +171,8 @@ public class ExceptionController {
     //查找
     @ResponseBody
     @AddViewsCount
-    @GetMapping("/getException")
-    public ResponseModel getException(@NotNull Integer id,HttpServletRequest request){
+    @GetMapping("/exception/{id}")
+    public ResponseModel getException(@PathVariable("id")Integer id,HttpServletRequest request){
             if(Objects.nonNull(id)){
                 //添加浏览记录
               if(request.getSession().getAttribute("loginUser")!=null){
@@ -283,4 +281,25 @@ public class ExceptionController {
         return resList;
     }
 
+    @DeleteMapping("/exception/{id}")
+    @ResponseBody
+    public ResponseModel delException(@PathVariable("id") Integer id,HttpServletRequest request){
+        if(request.getSession().getAttribute("loginUser")==null){
+            return ResponseModel.failResModel(0,"非法请求");
+        }
+        Exception exception = new Exception();
+        exception.setId(id);
+        List<Exception> list = exceptionService.findException(exception);
+
+        if(list.size()==0) {
+           return ResponseModel.failResModel(0,"非法参数");
+        }else{
+            if(request.getSession().getAttribute("loginUser").toString().equals(list.get(0).getAuthor())){
+                int i = exceptionService.delException(id);
+                return i==0?ResponseModel.failResModel(0,"删除失败，请联系管理员"):ResponseModel.successResModel(1,"删除成功",null);
+            }else{
+                return ResponseModel.failResModel(0,"不能删除不是自己的文章");
+            }
+        }
+    }
 }
