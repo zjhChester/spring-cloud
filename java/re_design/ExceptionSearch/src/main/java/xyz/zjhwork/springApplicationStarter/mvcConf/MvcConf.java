@@ -1,6 +1,7 @@
 package xyz.zjhwork.springApplicationStarter.mvcConf;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -13,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.filter.HttpPutFormContentFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -31,6 +33,8 @@ import java.util.Properties;
 
 public class MvcConf implements WebMvcConfigurer {
 
+
+
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 //        字符转换  包括解决中文乱码
@@ -47,6 +51,7 @@ public class MvcConf implements WebMvcConfigurer {
                 .addPathPatterns("/userStatus").addPathPatterns("/userExit").addPathPatterns("/newException").addPathPatterns("/myListException").addPathPatterns("/userInfo")
         .addPathPatterns("/isFavByUsernameAndExceptionId").addPathPatterns("/findFavByUsername").addPathPatterns("/deleteFavFromFavByUsernameAndExceptionId").addPathPatterns("/addFavByUsernameAndExceptionId")
         .addPathPatterns("/isAproByUsernameAndExceptionId").addPathPatterns("/addAproByUsernameAndExceptionId").addPathPatterns("/insertComment").addPathPatterns("/findHistoryByUsername").addPathPatterns("/userInfoUpdate")
+        .addPathPatterns("exception/exceptionByUserAndId/*")
         ;
     }
 
@@ -62,11 +67,20 @@ public class MvcConf implements WebMvcConfigurer {
     }
 
     /**
+     * put请求的参数过滤器
+     */
+    @Bean
+    public HttpPutFormContentFilter httpPutFormContentFilter(){
+        return new HttpPutFormContentFilter();
+    }
+
+    /**
      * mybatisConf
-     *
+     *连接池
+     * 使用hikariDataSource
      * @return
      */
-    @Bean("pooledDataSource")
+    @Bean("hikariDataSource")
     public DataSource dataSource() {
         //加载db.properties 读取数据库基本信息
         Properties pop = new Properties();
@@ -75,17 +89,20 @@ public class MvcConf implements WebMvcConfigurer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        PooledDataSource dataSource = new PooledDataSource();
+        HikariDataSource hikariDataSource = new HikariDataSource();
         try {
-            dataSource.setDriver(pop.getProperty("jdbc.driver"));
-            dataSource.setUsername(pop.getProperty("jdbc.username"));
-            dataSource.setPassword(pop.getProperty("jdbc.password"));
-            dataSource.setUrl(pop.getProperty("jdbc.url"));
-            dataSource.setDefaultAutoCommit(true);
+            hikariDataSource.setDriverClassName(pop.getProperty("jdbc.driver"));
+            hikariDataSource.setUsername(pop.getProperty("jdbc.username"));
+            hikariDataSource.setPassword(pop.getProperty("jdbc.password"));
+            hikariDataSource.setJdbcUrl(pop.getProperty("jdbc.url"));
+            hikariDataSource.setAutoCommit(true);
+            hikariDataSource.setMinimumIdle(1);
+            hikariDataSource.setMaximumPoolSize(10);
+            hikariDataSource.setPoolName("hikariDataSource in Hikari System");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return dataSource;
+        return hikariDataSource;
     }
 
     @Bean("sqlSessionFactoryBean")

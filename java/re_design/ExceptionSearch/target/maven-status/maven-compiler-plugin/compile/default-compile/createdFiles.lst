@@ -26,6 +26,7 @@ xyz\zjhwork\dao\ExceptionDao.class
 xyz\zjhwork\service\impl\ExceptionServiceImpl.class
 xyz\zjhwork\controller\UserController.class
 xyz\zjhwork\dao\FavDao.class
+xyz\zjhwork\entity\Exception$ExceptionBuilder.class
 xyz\zjhwork\controller\ArpoveController.class
 xyz\zjhwork\entity\Approve.class
 xyz\zjhwork\dao\HisDao.class
@@ -34,3 +35,4 @@ xyz\zjhwork\entity\History.class
 xyz\zjhwork\controller\ExceptionController.class
 xyz\zjhwork\dao\UserDao.class
 xyz\zjhwork\service\impl\OtherServiceImpl.class
+xyz\zjhwork\springApplicationStarter\mvcConf\Swagger2.class

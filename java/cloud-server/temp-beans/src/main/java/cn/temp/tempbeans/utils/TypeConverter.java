@@ -63,23 +63,23 @@ public class TypeConverter {
         return t;
     }
 
-    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
-        User user = new User();
-        user.setId(1);
-        user.setUsername("zjh");
-        String arr[] = new String[5];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i+"";
-        }
-        user.setArr(arr);
-
-        Msg msg = new Msg();
-        msg.setContent("1231231j23po1npodn1pon[131o23");
-        ArrayList<Msg> msgs = new ArrayList<>();
-        msgs.add(msg);
-        user.setMsgs(msgs);
-        ValidDTO convert = new TypeConverter().convert(user, ValidDTO.class);
-        System.out.println(user);
-        System.out.println(convert);
-    }
+//    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+//        User user = new User();
+//        user.setId(1);
+//        user.setUsername("zjh");
+//        String arr[] = new String[5];
+//        for (int i = 0; i < arr.length; i++) {
+//            arr[i] = i+"";
+//        }
+//        user.setArr(arr);
+//
+//        Msg msg = new Msg();
+//        msg.setContent("1231231j23po1npodn1pon[131o23");
+//        ArrayList<Msg> msgs = new ArrayList<>();
+//        msgs.add(msg);
+//        user.setMsgs(msgs);
+//        ValidDTO convert = new TypeConverter().convert(user, ValidDTO.class);
+//        System.out.println(user);
+//        System.out.println(convert);
+//    }
 }

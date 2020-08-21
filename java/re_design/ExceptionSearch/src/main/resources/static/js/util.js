@@ -3,7 +3,7 @@
     function init(keywords,type) {
         $(".load").show()
         $.ajax({
-            url:"/searchCount",
+            url:"searchCount",
             type:"GET",
             data:{"keywords":keywords,"type":type},
             success:function (count) {
@@ -38,7 +38,7 @@
     function search(type,keywords,page){
         $(".load-msg").html("正在加载，请稍后")
         $.ajax({
-            url:"/search",
+            url:"search",
             type:"GET",
             data:{"keywords":keywords,"type":type,"currPage":page},
             success:function(res){
@@ -109,7 +109,7 @@
     //登录状态
     function userStatus() {
         $.ajax({
-            url:"/userStatus",
+            url:"userStatus",
             type:"GET",
             success:function (res) {
                 var e = JSON.parse(res);
@@ -137,7 +137,7 @@
             } else {
                 //发起登陆请求
                 $.ajax({
-                    url: "/checkUser",
+                    url: "checkUser",
                     type: "POST",
                     data: {"username": $("input[name='username']").val(), "password": hex_md5($("input[name='password']").val())},
                     success: function (res) {
@@ -160,7 +160,7 @@
         //执行函数
         $("#myModal_enter").click(function() {
             $.ajax({
-                url: "/userExit",
+                url: "userExit",
                 type: "POST",
                 success: function (res) {
                     if (JSON.parse(res).code == 1) {
@@ -186,7 +186,7 @@
     }
     function loadException(id){
         $.ajax({
-            url:"/exception/"+id,
+            url:"exception/"+id,
             type:"GET",
             success:function(res){
                 var e = JSON.parse(res);
@@ -218,7 +218,7 @@
     function createMarkdownUserStatus() {
         $(".load").show()
         $.ajax({
-            url:"/userStatus",
+            url:"userStatus",
             type:"GET",
             success:function (res) {
                 var e = JSON.parse(res);
@@ -260,7 +260,7 @@
     //收藏
     function addFavorite(id) {
         $.ajax({
-            url: "/addFavByUsernameAndExceptionId",
+            url: "addFavByUsernameAndExceptionId",
             type:"POST",
             data:{"id":id},
             success:function (res) {
@@ -279,7 +279,7 @@
     //取消收藏
     function favoriteCancel(id) {
         $.ajax({
-            url: "/deleteFavFromFavByUsernameAndExceptionId",
+            url: "deleteFavFromFavByUsernameAndExceptionId",
             type:"POST",
             data:{"id":id},
             success:function (res) {
@@ -298,7 +298,7 @@
     //查询本文有多少赞
     function approveCount(id) {
         $.ajax({
-            url: "/findApproCountByExceptionId",
+            url: "findApproCountByExceptionId",
             type: "GET",
             data: {"id": id},
             success: function (res) {
@@ -312,7 +312,7 @@
     //检查赞赏状态
     function approveStatus(id) {
         $.ajax({
-            url: "/isAproByUsernameAndExceptionId",
+            url: "isAproByUsernameAndExceptionId",
             type: "GET",
             data: {"id": id},
             success: function (res) {
@@ -355,7 +355,7 @@
         //初始化dom
         $(".comment_list").html("")
         $.ajax({
-            url: "/findComment",
+            url: "findComment",
             type:"GET",
             data:{"id":id},
             success: function (res) {
@@ -392,7 +392,7 @@
             return;
         }else{
             $.ajax({
-                url: "/insertComment",
+                url: "insertComment",
                 type:"POST",
                 data:{"id":id,"content":$("#commentContent").val()},
                 success:function (res) {
@@ -414,7 +414,7 @@
     function newListLoading() {
         $(".load").show()
         $.ajax({
-            url:"/newListException",
+            url:"newListException",
             type:"GET",
             success:function (res) {
                 var e = JSON.parse(res);
@@ -429,7 +429,7 @@
     function myListLoading() {
         $(".load").show()
         $.ajax({
-            url:"/myListException",
+            url:"myListException",
             type:"GET",
             success:function (res) {
                 var e = JSON.parse(res);
@@ -445,7 +445,7 @@
     function myFavoriteLoading() {
         $(".favoriteList ul").html("");
         $.ajax({
-            url: "/findFavByUsername",
+            url: "findFavByUsername",
             type: "GET",
             success:function (res) {
                 var e = JSON.parse(res);
@@ -465,7 +465,7 @@
     function historyLoading() {
         $(".historyList ul").html("");
         $.ajax({
-            url: "/findHistoryByUsername",
+            url: "findHistoryByUsername",
             type: "GET",
             success:function (res) {
                 var e = JSON.parse(res);
@@ -485,7 +485,7 @@
     function myInfo() {
         $(".load").show()
         $.ajax({
-            url: "/userInfo",
+            url: "userInfo",
             type: "GET",
             success: function (res) {
                 var e = JSON.parse(res);
@@ -517,7 +517,7 @@
             $("input[name='password']").focus();
         }else{
             $.ajax({
-                url:"/userInfoUpdate",
+                url:"userInfoUpdate",
                 type:"POST",
                 data:{"nickname":nickname,"password":hex_md5(password),"gender":gender,"age":age},
                 success:function (res) {

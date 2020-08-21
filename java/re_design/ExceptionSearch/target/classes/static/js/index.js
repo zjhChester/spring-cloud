@@ -73,7 +73,7 @@ var exceptionSearch={
             if($(this).val()){
 
                 $.ajax({
-                    url:"/searchAssociation",
+                    url:"searchAssociation",
                     type:"GET",
                     data:{"keywords":$(this).val()},
                     success:function (res) {

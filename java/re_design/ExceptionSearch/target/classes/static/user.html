@@ -76,6 +76,8 @@
                                     <h4>{{item.title}}</h4>
                                     <p>{{account.nickname}} 提交于 {{item.createTime}}</p>
                                 </div>
+                                <el-button style="position: absolute;right: 110px;top: 45%;" type="primary" @click="toUpdatePage(item.id)">编辑</el-button>
+
                                 <el-button style="position: absolute;right: 20px;top: 45%;" type="danger" @click="delException(item.id,item.title)">删除</el-button>
                             </el-card>
                         </el-timeline-item>
@@ -234,6 +236,10 @@
             }
         },
         methods: {
+
+            toUpdatePage(id){
+              window.location.href="updatePage.html?id="+id
+            },
             //文章删除
             delException(id, title) {
                 this.$confirm('确认删除《' + title + '》该文章吗?', '提示', {
@@ -243,7 +249,7 @@
                     center: true
                 }).then(() => {
                     axios({
-                              url: this.url + "/exception/"+id,
+                              url:"exception/"+id,
                     method: "DELETE"
             }).then(response => {
                     if (response.data.code == 1) {
@@ -290,7 +296,7 @@
             //退出登录请求
             checkUser() {
                 axios({
-                    url: this.url + "/userExit",
+                    url: "userExit",
                     method: "POST"
                 }).then(response => {
                     if (response.data.code == 1) {
@@ -320,7 +326,7 @@
             //检查登录状态
             createMarkdownUserStatus() {
                 axios({
-                    url: this.url + "/userStatus",
+                    url: "userStatus",
                     method: "GET"
                 }).then(response => {
 
@@ -342,7 +348,7 @@
             //加载最新文章
             newListLoading() {
                 axios({
-                    url: this.url + "/newListException",
+                    url:"newListException",
                     method: "GET"
                 }).then(response => {
                     this.new_exception = [];
@@ -359,7 +365,7 @@
             //加载我的文章
             myListLoading() {
                 axios({
-                    url: this.url + "/myListException",
+                    url: "myListException",
                     method: "GET"
                 }).then(response => {
                     this.my_exception = [];
@@ -375,7 +381,7 @@
             //加载用户信息
             myInfo() {
                 axios({
-                    url: this.url + "/userInfo",
+                    url: "userInfo",
                     method: "GET"
                 }).then(response => {
                     this.account = {
@@ -396,7 +402,7 @@
             myFavoriteLoading() {
                 var that = this;
                 axios({
-                    url: this.url + "/findFavByUsername",
+                    url:  "findFavByUsername",
                     method: "GET"
                 }).then(response => {
                     this.fav_activities = [];
@@ -423,7 +429,7 @@
             historyLoading() {
                 var that = this
                 axios({
-                    url: this.url + "/findHistoryByUsername",
+                    url:"findHistoryByUsername",
                     method: "GET"
                 }).then(response => {
                     this.history_activities = [];

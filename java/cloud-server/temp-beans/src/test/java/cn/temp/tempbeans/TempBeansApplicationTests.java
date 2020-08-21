@@ -1,14 +1,23 @@
 package cn.temp.tempbeans;
 
+import cn.temp.tempbeans.dao.ExceptionMapper;
 import cn.temp.tempbeans.dao.MsgMapper;
 import cn.temp.tempbeans.dao.UserMapper;
+import cn.temp.tempbeans.pojo.Exception;
 import cn.temp.tempbeans.pojo.Msg;
+import cn.temp.tempbeans.pojo.ObjectKey;
 import cn.temp.tempbeans.pojo.User;
 import cn.temp.tempbeans.test.BeansTest;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.models.auth.In;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -136,6 +145,26 @@ class TempBeansApplicationTests {
 
     }
 
+    @Autowired
+    private ExceptionMapper exceptionMapper;
+    @Test
+    public void getPage(){
+        IPage<Exception> page = exceptionMapper.selectPage( new Page<>(0,5),new QueryWrapper<Exception>().likeLeft("title","java"));
+        System.out.println(page.getRecords().size());
+    }
+    @Test
+    public void testHashMapSource(){
+        HashMap<ObjectKey,Integer> hashMap = new HashMap<>();
+        ObjectKey o1 = ObjectKey.builder().about("10").space("10").count(10).build();
+        ObjectKey o2 = ObjectKey.builder().about("10").space("10").count(10).build();
+        ObjectKey o3 = ObjectKey.builder().about("11").space("11").count(11).build();
+        ObjectKey o4 = ObjectKey.builder().about("12").space("12").count(12).build();
+        hashMap.put(o1,1);
+        hashMap.put(o2,2);
+        hashMap.put(o3,3);
+        hashMap.put(o4,4);
+        System.out.println(hashMap);
+    }
 
 
 }

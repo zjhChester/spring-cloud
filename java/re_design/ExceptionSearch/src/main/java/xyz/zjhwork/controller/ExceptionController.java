@@ -161,12 +161,41 @@ public class ExceptionController {
             if(i==0){
                 return ResponseModel.failResModel(0,"create Exception fail!");
             }else{
-                return ResponseModel.successResModel(exceptionService.findException(exception).get(0).getId(),"SUCCESS",null);
+
+                return ResponseModel.successResModel(exceptionService.findException( Exception.builder().title(exception.getTitle()).build()).get(0).getId(),"SUCCESS",null);
             }
         }else{
             return ResponseModel.failResModel(0,"please input args!");
         }
 
+    }
+    @GetMapping("/exception/exceptionByUserAndId/{id}")
+    @ResponseBody
+    public ResponseModel exceptionByUserAndIdGet(@PathVariable("id")Integer id,HttpServletRequest request){
+        Object loginUser = request.getSession().getAttribute("loginUser");
+        if (loginUser!=null){
+            List<Exception> exceptions = exceptionService.findException(Exception.builder().id(id).author(loginUser.toString()).build());
+            if(exceptions.size()!=0){
+                return ResponseModel.successResModel(1,"success",exceptions.toArray());
+            }else{
+                return ResponseModel.failResModel(0,"只能修改自己的文章噢！");
+            }
+        }else{
+            return ResponseModel.failResModel(0,"no session user");
+        }
+    }
+
+    @PostMapping ("/exception/exceptionByUserAndId/{id}")
+    @ResponseBody
+    public ResponseModel exceptionByUserAndIdPut(@PathVariable ("id") Integer id,HttpServletRequest request,  String title,  String content,  String type,  String desc){
+        Object loginUser = request.getSession().getAttribute("loginUser");
+        if (loginUser!=null){
+            Exception exception = Exception.builder().desc(desc).author(loginUser.toString()).id(id).title(title).content(content).type(type).createTime(DateUtils.getFormat(new Date())).build();
+            int i = exceptionService.updateException(exception);
+            return i==1?ResponseModel.successResModel(1,"SUCCESS",null):ResponseModel.failResModel(0,"修改失败");
+        }else{
+            return ResponseModel.failResModel(0,"no session user");
+        }
     }
     //查找
     @ResponseBody
@@ -302,4 +331,6 @@ public class ExceptionController {
             }
         }
     }
+
+
 }
