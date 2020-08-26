@@ -1,8 +1,11 @@
 package xyz.zjhwork.controller;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import xyz.zjhwork.aop.interfaces.AddViewsCount;
 import xyz.zjhwork.entity.Exception;
@@ -11,8 +14,6 @@ import xyz.zjhwork.resmodel.ResponseModel;
 import xyz.zjhwork.service.ExceptionService;
 import xyz.zjhwork.service.OtherService;
 import xyz.zjhwork.utils.DateUtils;
-import xyz.zjhwork.utils.SortUtils;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
@@ -24,6 +25,7 @@ import java.util.*;
  * 3、按浏览量排名
  */
 @Controller
+@Slf4j
 public class ExceptionController {
     @Autowired
     private ExceptionService exceptionService;
@@ -144,8 +146,8 @@ public class ExceptionController {
      * CRUD
      */
     //新增
-    @ResponseBody
     @PostMapping("/newException")
+    @ResponseBody
     public ResponseModel newException(String title, String desc, String content, String type, HttpServletRequest request){
         if(Objects.nonNull(title)&&Objects.nonNull(desc)&Objects.nonNull(content)&Objects.nonNull(type)){
             Exception exception = new Exception();
@@ -185,16 +187,17 @@ public class ExceptionController {
         }
     }
 
-    @PostMapping ("/exception/exceptionByUserAndId/{id}")
+
+    @PutMapping ("/exception/exceptionByUserAndId/{id}")
     @ResponseBody
-    public ResponseModel exceptionByUserAndIdPut(@PathVariable ("id") Integer id,HttpServletRequest request,  String title,  String content,  String type,  String desc){
+    public ResponseModel exceptionByUserAndIdPut(@PathVariable ("id") Integer id,HttpServletRequest request, @RequestBody Exception exception){
         Object loginUser = request.getSession().getAttribute("loginUser");
-        if (loginUser!=null){
-            Exception exception = Exception.builder().desc(desc).author(loginUser.toString()).id(id).title(title).content(content).type(type).createTime(DateUtils.getFormat(new Date())).build();
+        if (loginUser!=null&&exception.getTitle()!=null){
+            exception.setCreateTime(DateUtils.getFormat(new Date()));
             int i = exceptionService.updateException(exception);
             return i==1?ResponseModel.successResModel(1,"SUCCESS",null):ResponseModel.failResModel(0,"修改失败");
         }else{
-            return ResponseModel.failResModel(0,"no session user");
+            return ResponseModel.failResModel(0,"no session user or gr");
         }
     }
     //查找

@@ -2,7 +2,6 @@ package xyz.zjhwork.springApplicationStarter.mvcConf;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.zaxxer.hikari.HikariDataSource;
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
@@ -39,7 +38,7 @@ public class MvcConf implements WebMvcConfigurer {
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 //        字符转换  包括解决中文乱码
         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
-        fastJsonHttpMessageConverter.setSupportedMediaTypes(MediaType.parseMediaTypes("text/html;charset=utf-8"));
+        fastJsonHttpMessageConverter.setSupportedMediaTypes(MediaType.parseMediaTypes("text/html;charset=utf-8,application/json,application/json;charset=utf-8"));
         converters.add(fastJsonHttpMessageConverter);
     }
 
@@ -96,7 +95,7 @@ public class MvcConf implements WebMvcConfigurer {
             hikariDataSource.setPassword(pop.getProperty("jdbc.password"));
             hikariDataSource.setJdbcUrl(pop.getProperty("jdbc.url"));
             hikariDataSource.setAutoCommit(true);
-            hikariDataSource.setMinimumIdle(1);
+            hikariDataSource.setMinimumIdle(0);
             hikariDataSource.setMaximumPoolSize(10);
             hikariDataSource.setPoolName("hikariDataSource in Hikari System");
         } catch (Exception e) {
