@@ -51,6 +51,9 @@
             <if test="views!=null and views!=''">
                 views = #{views},
             </if>
+            <if test="createTime!=null and createTime!=''">
+                createTime = #{createTime},
+            </if>
         </trim>
         where id = #{id}
 

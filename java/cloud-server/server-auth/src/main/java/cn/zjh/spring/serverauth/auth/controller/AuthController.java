@@ -1,6 +1,5 @@
 package cn.zjh.spring.serverauth.auth.controller;
 
-import cn.zjh.spring.serverauth.auth.config.TestAnnotation;
 import cn.zjh.spring.serverauth.auth.dto.AutoDTO;
 import cn.zjh.spring.serverauth.auth.dto.TokenDTO;
 import cn.zjh.spring.serverauth.auth.utils.JwtUtil;
