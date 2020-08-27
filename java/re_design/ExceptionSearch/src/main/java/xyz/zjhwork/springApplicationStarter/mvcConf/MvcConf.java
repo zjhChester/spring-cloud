@@ -25,11 +25,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
-@Configuration
-@EnableWebMvc
-@ComponentScan("xyz.zjhwork")
-@EnableAspectJAutoProxy
 
+
+
+@EnableAspectJAutoProxy
+@ComponentScan("xyz.zjhwork")
+@EnableWebMvc
+@Configuration
 public class MvcConf implements WebMvcConfigurer {
 
 

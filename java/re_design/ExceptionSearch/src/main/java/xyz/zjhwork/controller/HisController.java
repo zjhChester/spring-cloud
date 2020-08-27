@@ -26,12 +26,7 @@ public class HisController {
     public List<Exception> findHistoryByUsername(HttpServletRequest request){
         List<Exception> exceptions = otherService.findHistoryByUsername(request.getSession().getAttribute("loginUser").toString());
 
-        for (Exception e:
-                exceptions) {
-            if(e.getTitle().trim().length()>=15){
-                e.getTitle().trim().substring(0,15);
-            }
-        }
+
         return exceptions;
     }
 

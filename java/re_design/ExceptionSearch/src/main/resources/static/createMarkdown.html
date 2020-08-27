@@ -11,6 +11,7 @@
 		<script src="js/util.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.js"></script>
         <style>
 			*{
 				padding: 0;
@@ -206,24 +207,28 @@
                             $("#oriContent").focus();
                             return;
                         }
-                        $.ajax({
-                            url:"newException",
-                            type:"POST",
-                            data:{"title":title,"desc":desc,"type":type,"content":content},
-                            success:function (res) {
-                                var e = JSON.parse(res);
-                                if(e.code != 0){
-                                    //跳转去当前文章的详情页
-									location.href="markdownDetail.html?id="+e.code;
-                                    $(".load-msg").html("发表成功！请稍后")
-                                    //两秒后消失
-                                    $(".load").show().delay(2000).hide()
-                                }else{
-                                    alert("发表失败请重试");
-                                    //dom元素的值不用清空方便发起第二次提交
-                                }
-                            }
-                        })
+                        var exception = {title:title,desc:desc,type:type,content:content};
+                        axios({
+                            url: "newException",
+                            method: "POST",
+                            data:exception,
+                        }).then(response => {
+                            //如果请求成功，则进行页面初始化
+                            if (response.data.code != 0) {
+                            //跳转去当前文章的详情页
+                            location.href="markdownDetail.html?id="+response.data.code;
+                            $(".load-msg").html("发表成功！请稍后")
+                            //两秒后消失
+                            $(".load").show().delay(2000).hide()
+                        } else {
+                            alert("发表失败,因为："+response.data.desc);
+                            //dom元素的值不用清空方便发起第二次提交
+                        }
+                    })
+                    .catch((error) => {
+                            alert("发表失败,因为："+error);
+                        //dom元素的值不用清空方便发起第二次提交
+                    })
 
                     })
 

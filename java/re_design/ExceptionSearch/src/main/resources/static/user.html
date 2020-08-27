@@ -15,6 +15,20 @@
             padding:0;
             margin: 0;
         }
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+        .clearfix:after {
+            clear: both
+        }
+
+        .box-card {
+            margin: 10px auto;
+            width: 90%;
+            max-height: 500px;
+        }
     </style>
 </head>
 
@@ -46,12 +60,14 @@
                         <el-breadcrumb-item>最新文章</el-breadcrumb-item>
                     </el-breadcrumb>
                     <el-timeline
-                            :style="'max-height:'+ (windowHeight-130)+'px;min-height:'+ (windowHeight-130)+'px;overflow-y: scroll;border-right: solid 1px lightgray;padding-right: 20px;'">
+                            :style="'max-height:'+ (windowHeight-100)+'px;min-height:'+ (windowHeight-130)+'px;overflow-y: scroll;border-right: solid 1px lightgray;padding-right: 20px;'">
                         <el-timeline-item :timestamp="item.createTime" placement="top"
                                           v-for="(item,i) in new_exception">
                             <el-card style="cursor: pointer">
                                 <div @click="toExceptionDetail(item.id)">
-                                    <h4>{{item.title}}</h4>
+                                    <el-tooltip class="item" effect="dark" :content="item.title" placement="top-start">
+                                        <h4 style="width: 60%">{{item.title.substr(0,40)}}<span v-if="item.title.length>40">...</span></h4>
+                                    </el-tooltip>
                                     <p>{{item.author}} 提交于 {{item.createTime}}</p>
                                 </div>
                             </el-card>
@@ -68,12 +84,14 @@
                         <el-breadcrumb-item>我的文章</el-breadcrumb-item>
                     </el-breadcrumb>
                     <el-timeline
-                            :style="'max-height:'+ (windowHeight-130)+'px;overflow-y: scroll;min-height:'+ (windowHeight-130)+'px;border-right: lightgray 1px solid;padding-right: 20px;'">
+                            :style="'max-height:'+ (windowHeight-100)+'px;overflow-y: scroll;min-height:'+ (windowHeight-130)+'px;border-right: lightgray 1px solid;padding-right: 20px;'">
                         <el-timeline-item :timestamp="item.createTime" placement="top"
                                           v-for="(item,i) in my_exception">
                             <el-card style="cursor: pointer">
                                 <div @click="toExceptionDetail(item.id)" >
-                                    <h4>{{item.title}}</h4>
+                                    <el-tooltip class="item" effect="dark" :content="item.title" placement="top-start">
+                                        <h4 style="width: 60%">{{item.title.substr(0,20)}}<span v-if="item.title.length>20">...</span></h4>
+                                    </el-tooltip>
                                     <p>{{account.nickname}} 提交于 {{item.createTime}}</p>
                                 </div>
                                 <el-button style="position: absolute;right: 110px;top: 45%;" type="primary" @click="toUpdatePage(item.id)">编辑</el-button>
@@ -90,22 +108,26 @@
 
                 <!-- 我的信息/历史记录/我的收藏模块 -->
                 <div class="grid-content bg-purple">
+                    <!-- 我的信息模块 -->
+                    <el-card class="box-card">
 
+                        <div slot="header" class="clearfix">
+                            <el-avatar src="http://img.zjhwork.xyz/logo.png" fit="cover" style="float: right; "></el-avatar>
+                            <span>{{account.nickname}}的资料卡</span>
+                        </div>
+                        <div class="grid-content bg-purple" v-loading="my_info_loading"
+                             element-loading-text="我的信息拼命加载中~" element-loading-spinner="el-icon-loading">
+                            <div>账号：{{account.username}}</div>
+                            <hr style="border: solid 0.5px lightgray;width: 90%;">
+                            <div>昵称：{{account.nickname}}</div>
+                            <hr style="border: solid 0.5px lightgray;width: 90%;">
+                            <div>性别：{{account.gender}}</div>
+                            <hr style="border: solid 0.5px lightgray;width: 90%;">
+                            <div>邮箱：{{account.email}}</div>
+                            <hr style="border: solid 0.5px lightgray;width: 90%;">
+                        </div>
+                    </el-card>
                     <el-collapse v-model="activeNames" @change="handleChange">
-                        <el-collapse-item title="我的信息" name="1">
-                            <!-- 我的信息模块 -->
-                            <div class="grid-content bg-purple" v-loading="my_info_loading"
-                                 element-loading-text="我的信息拼命加载中~" element-loading-spinner="el-icon-loading">
-                                <div>账号：{{account.username}}</div>
-                                <hr style="border: solid 0.5px lightgray;width: 90%;">
-                                <div>昵称：{{account.nickname}}</div>
-                                <hr style="border: solid 0.5px lightgray;width: 90%;">
-                                <div>性别：{{account.gender}}</div>
-                                <hr style="border: solid 0.5px lightgray;width: 90%;">
-                                <div>邮箱：{{account.email}}</div>
-                                <hr style="border: solid 0.5px lightgray;width: 90%;">
-                            </div>
-                        </el-collapse-item>
                         <el-collapse-item title="我的收藏" name="2">
                             <div class="fav_activities" v-loading="my_fav_loading" element-loading-text="我的收藏拼命加载中~"
                                  element-loading-spinner="el-icon-loading">
@@ -114,9 +136,12 @@
                                     <el-timeline-item v-for="(activity, index) in fav_activities" :key="index"
                                                       :icon="activity.icon" :type="activity.type" :color="activity.color"
                                                       :size="activity.size" :timestamp="activity.createTime">
-                                        <div @click="toExceptionDetail(activity.id)"
-                                             style="color:dodgerblue;text-decoration: underline;cursor: pointer">
-                                            {{activity.title}}</div>
+                                        <el-tooltip class="item" effect="dark" :content="activity.title" placement="top-start">
+                                            <div @click="toExceptionDetail(activity.id)"
+                                                 style="color:dodgerblue;text-decoration: underline;cursor: pointer">
+                                                {{activity.title.substr(0,20)}}<span v-if="activity.title.length>20">...</span></div>
+                                        </el-tooltip>
+
                                     </el-timeline-item>
                                 </el-timeline>
                             </div>
@@ -129,9 +154,11 @@
                                     <el-timeline-item v-for="(activity, index) in history_activities" :key="index"
                                                       :icon="activity.icon" :type="activity.type" :color="activity.color"
                                                       :size="activity.size" :timestamp="activity.createTime">
-                                        <div @click="toExceptionDetail(activity.id)"
-                                             style="color:darkgoldenrod;text-decoration: underline;cursor: pointer">
-                                            {{activity.title}}</div>
+                                        <el-tooltip class="item" effect="dark" :content="activity.title" placement="top-start">
+                                            <div @click="toExceptionDetail(activity.id)"
+                                                 style="color:dodgerblue;text-decoration: underline;cursor: pointer">
+                                                {{activity.title.substr(0,20)}}<span v-if="activity.title.length>20">...</span></div>
+                                        </el-tooltip>
                                     </el-timeline-item>
                                 </el-timeline>
                             </div>

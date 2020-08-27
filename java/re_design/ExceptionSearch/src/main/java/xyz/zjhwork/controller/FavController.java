@@ -51,12 +51,6 @@ public class FavController {
     @GetMapping("/findFavByUsername")
     public List<Exception> findFavByUsername(HttpServletRequest request){
         List<Exception> exceptions = otherService.findFavByUsername(request.getSession().getAttribute("loginUser").toString());
-            for (Exception e:
-                 exceptions) {
-                if(e.getTitle().trim().length()>=15){
-                    e.getTitle().trim().substring(0,15);
-                }
-            }
         return exceptions;
     }
     //取消收藏

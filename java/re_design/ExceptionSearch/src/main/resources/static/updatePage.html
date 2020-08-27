@@ -289,7 +289,7 @@
                 };
                 axios({
                     url:"/exception/exceptionByUserAndId/"+this.exceptionId,
-                    data:{exception: exceptionInfo},
+                    data: exceptionInfo,
                     method: "PUT"
 
                 }).then(response => {

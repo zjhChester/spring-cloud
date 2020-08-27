@@ -15,6 +15,7 @@ import xyz.zjhwork.service.ExceptionService;
 import xyz.zjhwork.service.OtherService;
 import xyz.zjhwork.utils.DateUtils;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.*;
 
 
@@ -148,14 +149,8 @@ public class ExceptionController {
     //新增
     @PostMapping("/newException")
     @ResponseBody
-    public ResponseModel newException(String title, String desc, String content, String type, HttpServletRequest request){
-        if(Objects.nonNull(title)&&Objects.nonNull(desc)&Objects.nonNull(content)&Objects.nonNull(type)){
-            Exception exception = new Exception();
-            exception.setTitle(title);
-            exception.setDesc(desc);
-            exception.setType(type);
-            exception.setContent(content);
-            exception.setAuthor(request.getSession().getAttribute("loginUser")+"");
+    public ResponseModel newException(@RequestBody @Valid Exception exception, HttpServletRequest request){
+            exception.setAuthor(request.getSession().getAttribute("loginUser").toString());
             exception.setCreateTime(DateUtils.getFormat(new Date()));
             exception.setViews(0);
             exception.setRemark("");
@@ -163,12 +158,9 @@ public class ExceptionController {
             if(i==0){
                 return ResponseModel.failResModel(0,"create Exception fail!");
             }else{
-
                 return ResponseModel.successResModel(exceptionService.findException( Exception.builder().title(exception.getTitle()).build()).get(0).getId(),"SUCCESS",null);
             }
-        }else{
-            return ResponseModel.failResModel(0,"please input args!");
-        }
+
 
     }
     @GetMapping("/exception/exceptionByUserAndId/{id}")
@@ -186,11 +178,11 @@ public class ExceptionController {
             return ResponseModel.failResModel(0,"no session user");
         }
     }
-
-
     @PutMapping ("/exception/exceptionByUserAndId/{id}")
     @ResponseBody
-    public ResponseModel exceptionByUserAndIdPut(@PathVariable ("id") Integer id,HttpServletRequest request, @RequestBody Exception exception){
+    public ResponseModel exceptionByUserAndIdPut(@PathVariable ("id") Integer id,HttpServletRequest request, @RequestBody @Valid Exception exception){
+        //防止接收失效
+        exception.setId(id);
         Object loginUser = request.getSession().getAttribute("loginUser");
         if (loginUser!=null&&exception.getTitle()!=null){
             exception.setCreateTime(DateUtils.getFormat(new Date()));
@@ -283,16 +275,6 @@ public class ExceptionController {
     @GetMapping("/newListException")
     public List<Exception> newListException(){
         List<Exception> resList = exceptionService.newListException();
-
-
-        for (Exception e :
-                resList) {
-
-            if(e.getTitle().trim().length()>=20)
-            {
-                e.setTitle(e.getTitle().trim().substring(0,20));
-            }
-        }
         return resList;
     }
 
@@ -301,15 +283,6 @@ public class ExceptionController {
     @GetMapping("/myListException")
     public List<Exception> myListException(HttpServletRequest request){
         List<Exception> resList = exceptionService.myListException(request.getSession().getAttribute("loginUser")+"");
-
-
-        for (Exception e :
-                resList) {
-            if(e.getTitle().length()>=20)
-            {
-                e.setTitle(e.getTitle().substring(0,20));
-            }
-        }
         return resList;
     }
 

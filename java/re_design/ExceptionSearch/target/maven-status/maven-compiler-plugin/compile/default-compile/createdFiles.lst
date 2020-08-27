@@ -22,6 +22,7 @@ xyz\zjhwork\controller\FavController.class
 xyz\zjhwork\dao\CommentDao.class
 xyz\zjhwork\entity\Comment.class
 xyz\zjhwork\controller\IndexController.class
+xyz\zjhwork\conf\HandleExceptionInValid.class
 xyz\zjhwork\dao\ExceptionDao.class
 xyz\zjhwork\service\impl\ExceptionServiceImpl.class
 xyz\zjhwork\controller\UserController.class
@@ -35,4 +36,3 @@ xyz\zjhwork\entity\History.class
 xyz\zjhwork\controller\ExceptionController.class
 xyz\zjhwork\dao\UserDao.class
 xyz\zjhwork\service\impl\OtherServiceImpl.class
-xyz\zjhwork\springApplicationStarter\mvcConf\Swagger2.class
