@@ -8,18 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d78d5569-ef6e-4e92-aea1-0455d5081d7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/addView_log/exception_view_log-2020-08-26-0.info.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/addView_log/exception_view_log-2020-08-26-0.info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log_center_err.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_center_err.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log_center_other.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log_center_other.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/ExceptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/FavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/FavController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/HisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/HisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/entity/Exception.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/entity/Exception.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/springApplicationStarter/mvcConf/MvcConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/zjhwork/springApplicationStarter/mvcConf/MvcConf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/createMarkdown.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/createMarkdown.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/updatePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/updatePage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ExceptionSearch-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ExceptionSearch-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/updatePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/updatePage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ExceptionSearch-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-ExceptionSearch-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -285,20 +278,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+            <state relative-caret-position="92">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/updatePage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4968">
-              <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
+            <state relative-caret-position="-230">
+              <caret line="290" column="25" selection-start-line="290" selection-start-column="25" selection-end-line="290" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#el-menu#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-submenu#0;n#el-menu#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -312,7 +305,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/springApplicationStarter/mvcConf/MvcConf.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="407">
-              <caret line="42" column="77" lean-forward="true" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
+              <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -324,7 +317,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/ExceptionController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
-              <caret line="281" column="17" lean-forward="true" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="17" />
+              <caret line="281" column="17" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -345,7 +338,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/FavController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="115">
-              <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+              <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -354,7 +347,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/createMarkdown.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="222" column="32" lean-forward="true" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="32" />
+              <caret line="222" column="32" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#hr#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#2;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -409,7 +402,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/entity/Exception.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
-              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+              <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -519,7 +512,6 @@
         <option value="$PROJECT_DIR$/src/main/java/xyz/zjhwork/conf/Result.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/zjhwork/springApplicationStarter/mvcConf/MvcConf.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/updatePage.html" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/zjhwork/entity/Exception.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/createMarkdown.html" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/ExceptionController.java" />
@@ -527,6 +519,7 @@
         <option value="$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/FavController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/user.html" />
         <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/updatePage.html" />
       </list>
     </option>
   </component>
@@ -598,47 +591,6 @@
             </path>
             <path>
               <item name="ExceptionSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExceptionSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExceptionSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExceptionSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExceptionSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExceptionSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExceptionSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExceptionSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zjhwork" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExceptionSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExceptionSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExceptionSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExceptionSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExceptionSearch" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -656,7 +608,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/代码包/JAVA_Src/IntelJ IDEA 项目地址/ExceptionSearch/src/main/java/xyz/zjhwork/entity/Exception.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1598498268907" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1598498471719" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cloud-server/timer-scheduled" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -755,12 +707,12 @@
       <workItem from="1597720108482" duration="556000" />
       <workItem from="1597799645291" duration="3501000" />
       <workItem from="1597806856557" duration="24680000" />
-      <workItem from="1598340283027" duration="17545000" />
+      <workItem from="1598340283027" duration="17803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302307000" />
+    <option name="totallyTimeSpent" value="302565000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -773,9 +725,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8716745" visible="true" weight="0.17110874" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8716745" visible="true" weight="0.17110874" />
       <window_info id="Structure" order="1" sideWeight="0.1283255" side_tool="true" weight="0.23134328" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -785,8 +736,8 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.32939914" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32939914" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.29613733" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.3165236" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.29613733" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3165236" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32939914" />
@@ -804,7 +755,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" weight="0.18923241" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.16257995" />
+      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.16257995" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info anchor="right" id="SciView" order="10" />
     </layout>
@@ -1169,7 +1120,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/springApplicationStarter/mvcConf/MvcConf.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
-          <caret line="42" column="77" lean-forward="true" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
+          <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1203,14 +1154,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/entity/Exception.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/ExceptionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="281" column="17" lean-forward="true" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="17" />
+          <caret line="281" column="17" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1227,30 +1178,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/zjhwork/controller/FavController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
-          <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/createMarkdown.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="222" column="32" lean-forward="true" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#2;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/updatePage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4968">
-          <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#el-menu#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-submenu#0;n#el-menu#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1284,8 +1212,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+        <state relative-caret-position="92">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/createMarkdown.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="222" column="32" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#hr#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/updatePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230">
+          <caret line="290" column="25" selection-start-line="290" selection-start-column="25" selection-end-line="290" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#el-menu#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-submenu#0;n#el-menu#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

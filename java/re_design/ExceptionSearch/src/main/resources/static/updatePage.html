@@ -288,7 +288,7 @@
                     id:this.exceptionId,title:this.title,type:this.type,desc:this.desc,content:this.oriContent
                 };
                 axios({
-                    url:"/exception/exceptionByUserAndId/"+this.exceptionId,
+                    url:"exception/exceptionByUserAndId/"+this.exceptionId,
                     data: exceptionInfo,
                     method: "PUT"
 
