@@ -298,6 +298,7 @@
                     if (response.data.code == 1) {
                     this.$message.success("修改成功！")
                     this.loadingExceptionInfo(this.exceptionId)
+                    window.location.href = "user.html";
                 } else {
                     this.$message.error("修改失败，因为："+response.data.desc)
                 }
