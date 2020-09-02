@@ -77,7 +77,7 @@ var exceptionSearch={
                     type:"GET",
                     data:{"keywords":$(this).val()},
                     success:function (res) {
-                        _this.hot.list = JSON.parse(res);
+                        _this.hot.list = res;
                     }
                 })
                 setSearchList();

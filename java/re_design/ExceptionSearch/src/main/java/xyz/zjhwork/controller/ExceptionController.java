@@ -1,11 +1,11 @@
 package xyz.zjhwork.controller;
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import xyz.zjhwork.aop.interfaces.AddViewsCount;
 import xyz.zjhwork.entity.Exception;
@@ -26,6 +26,7 @@ import java.util.*;
  * 3、按浏览量排名
  */
 @Controller
+@Api(tags = "Base Service interfaces ")
 @Slf4j
 public class ExceptionController {
     @Autowired
@@ -41,11 +42,12 @@ public class ExceptionController {
      *
      * @return
      */
+    @ApiOperation(value = "文章搜索接口", notes = "分页搜索，返回值的desc为高亮关键词（也可以前端处理，后端做过一次算法处理，可能不全面）")
     @ResponseBody
     @GetMapping("/search")
-    public ResponseModel search(String keywords,String type,Integer currPage){
+    public ResponseModel search(String keywords,Integer currPage){
         //空请求拦截
-        if("".equals(keywords) || currPage==null || "".equals(type)){
+        if("".equals(keywords) || currPage==null){
             return ResponseModel.failResModel(0,"please input args");
         }
         //处理高亮关键字的算法
@@ -71,7 +73,7 @@ public class ExceptionController {
         //将原关键词串也加入其中
         if(keywordsList.size()>1)
         keywordsList.add(keywords);
-        List<Exception> resList = exceptionService.search(keywordsList, type, currPage == null ? 1 : currPage);
+        List<Exception> resList = exceptionService.search(keywordsList, "title", currPage == null ? 1 : currPage);
         //不做搜索关键词处理，做高亮算法处理  提高精准度
         for (String s:
                 split) {
@@ -108,6 +110,7 @@ public class ExceptionController {
         return ResponseModel.successResModel(1,realKeywords.toString().trim().substring(0,realKeywords.length()-1), resList.toArray());
     }
 
+    @ApiOperation(value = "搜索条数接口", notes = "该接口配合搜索分页搜索接口进行分页，成功返回的desc为响应时间")
     @ResponseBody
     @GetMapping("/searchCount")
     public ResponseModel searchCount(String keywords,String type){
@@ -124,7 +127,6 @@ public class ExceptionController {
                 keywordsList.add(s);
             }
         }
-
         //如果只输入了介词直接返回
         if(keywordsList.size()==0){
             return ResponseModel.failResModel(0,"please input args");
@@ -147,6 +149,7 @@ public class ExceptionController {
      * CRUD
      */
     //新增
+    @ApiOperation(value = "创建文章接口", notes = "新建文章接口（专用），传入标题，描述，内容，类型即可，其中内容支持富文本格式（markdown格式），最好前端选型即为markdown，其余参数后台生成，登录权限控制")
     @PostMapping("/newException")
     @ResponseBody
     public ResponseModel newException(@RequestBody @Valid Exception exception, HttpServletRequest request){
@@ -163,6 +166,7 @@ public class ExceptionController {
 
 
     }
+    @ApiOperation(value = "当前用户文章的详情接口", notes = "用户文章详情接口，修改文章加载专用，权限控制，传入id即可，配合myListException接口进行使用，登录权限控制")
     @GetMapping("/exception/exceptionByUserAndId/{id}")
     @ResponseBody
     public ResponseModel exceptionByUserAndIdGet(@PathVariable("id")Integer id,HttpServletRequest request){
@@ -178,6 +182,7 @@ public class ExceptionController {
             return ResponseModel.failResModel(0,"no session user");
         }
     }
+    @ApiOperation(value = "修改文章接口", notes = "修改文章接口（专用），传入标题，描述，内容，类型即可，其余参数后台生成，登录权限控制")
     @PutMapping ("/exception/exceptionByUserAndId/{id}")
     @ResponseBody
     public ResponseModel exceptionByUserAndIdPut(@PathVariable ("id") Integer id,HttpServletRequest request, @RequestBody @Valid Exception exception){
@@ -193,6 +198,7 @@ public class ExceptionController {
         }
     }
     //查找
+    @ApiOperation(value = "文章详情接口", notes = "文章详情接口（通用），传入id即可")
     @ResponseBody
     @AddViewsCount
     @GetMapping("/exception/{id}")
@@ -229,6 +235,7 @@ public class ExceptionController {
      * @param keywords
      * @return
      */
+    @ApiOperation(value = "联想词组接口", notes = "联想词组接口，放在搜索框下面展示的结果列表")
     @ResponseBody
     @GetMapping("/searchAssociation")
     public List<String> searchAssociation(String keywords){
@@ -271,6 +278,7 @@ public class ExceptionController {
     }
 
     //最新文章
+    @ApiOperation(value = "用户中心>最新文章接口", notes = "最新文章接口（专用），登录权限控制")
     @ResponseBody
     @GetMapping("/newListException")
     public List<Exception> newListException(){
@@ -279,13 +287,14 @@ public class ExceptionController {
     }
 
     //我的文章
+    @ApiOperation(value = "用户中心>我的文章接口", notes = "我的文章接口（专用），登录权限控制")
     @ResponseBody
     @GetMapping("/myListException")
     public List<Exception> myListException(HttpServletRequest request){
         List<Exception> resList = exceptionService.myListException(request.getSession().getAttribute("loginUser")+"");
         return resList;
     }
-
+    @ApiOperation(value = "删除文章接口", notes = "删除文章接口（专用），登录权限控制")
     @DeleteMapping("/exception/{id}")
     @ResponseBody
     public ResponseModel delException(@PathVariable("id") Integer id,HttpServletRequest request){

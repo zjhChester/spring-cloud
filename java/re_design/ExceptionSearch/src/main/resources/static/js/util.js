@@ -7,7 +7,7 @@
             type:"GET",
             data:{"keywords":keywords,"type":type},
             success:function (count) {
-                var searchCount = JSON.parse(count);
+                var searchCount = count;
                 //初始化页面 第一次加载第一页
                 search(type,keywords,1);
                 //加载搜索结果
@@ -44,7 +44,7 @@
             success:function(res){
                 //清空页面
                 $(".search-result").html("");
-                var e = JSON.parse(res);
+                var e = res;
 
                 //文字高亮   解决方案2  先把结果内容转小写 去匹配关键字的小写，匹配到了记录index,str.length 在原结果串取出来，再进行replace()
                //1、取出关键词的小写
@@ -112,9 +112,9 @@
             url:"userStatus",
             type:"GET",
             success:function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 if(e.code == 1){
-                    $(".user").html("<a style='margin-right: 2%' href='user.html'>"+JSON.parse(res).result[0].username+"</a>")
+                    $(".user").html("<a style='margin-right: 2%' href='user.html'>"+res.result[0].username+"</a>")
                     $(".user").append("<button  type=\"button\" class=\"btn btn-default exitBtn\" data-toggle=\"modal\"  onclick=\"exit()\" data-target=\".myModalLogout\">退出登录</button>\n")
                     $(".user").append("\t\t\t\t<a href=\"user.html\"><button class=\"btn btn-info\">个人中心</button></a>\n")
                 }else{
@@ -143,13 +143,13 @@
                     success: function (res) {
                         $("input[name='username']").val("");
                         $("input[name='password']").val("");
-                        if (JSON.parse(res).code == 1) {
-                            $(".user").html("<a  style='margin-right: 2%' href='user.html'>"+JSON.parse(res).result[0].username+"</a>")
+                        if (res.code == 1) {
+                            $(".user").html("<a  style='margin-right: 2%' href='user.html'>"+res.result[0].username+"</a>")
                             $(".user").append("<button  type=\"button\" class=\"btn btn-default \"data-toggle=\"modal\" onclick=\"exit()\" data-target=\".myModalLogout\">退出登录</button>\n")
                             $(".user").append("\t\t\t\t<a href=\"user.html\"><button class=\"btn btn-info\">个人中心</button></a>\n")
                             $("#cancelLogin").click();
                         }else{
-                            alert("登陆失败，原因："+JSON.parse(res).desc)
+                            alert("登陆失败，原因："+res.desc)
                         }
                     }
                 })
@@ -163,7 +163,7 @@
                 url: "userExit",
                 type: "POST",
                 success: function (res) {
-                    if (JSON.parse(res).code == 1) {
+                    if (res.code == 1) {
                         $(".user").html("<button  type=\"button\" class=\"btn btn-default \" data-toggle=\"modal\"onclick=\"login()\" data-target=\".myModalLogin\">登录</button>\n");
                         $("#cancelExit").click();
                         if(createMarkdownUserStatus != undefined){
@@ -189,7 +189,7 @@
             url:"exception/"+id,
             type:"GET",
             success:function(res){
-                var e = JSON.parse(res);
+                var e = res;
                 if(e.code == 1){
                     $("title").html(e.result[0].title)
                     $(".keywords").html(e.result[0].title)
@@ -221,7 +221,7 @@
             url:"userStatus",
             type:"GET",
             success:function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 if(e.code == 0){
                     alert("还未登陆，请先登录哦！")
                     location.href="index.html"
@@ -359,7 +359,7 @@
             type:"GET",
             data:{"id":id},
             success: function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 if(e.length == 0){
                     $(".comment_list").html("<div class='text-center bg-warning' style='font-weight: 800;'>本文还没有评论哦！~</div>")
                 }else{
@@ -417,7 +417,7 @@
             url:"newListException",
             type:"GET",
             success:function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 $(".newList ul").html("");
                 for (var i = 0; i <e.length ; i++) {
                     $(".newList ul").append("<li><a style='cursor: pointer;width: 120px;overflow: hidden' onclick='toDetailPage("+e[i].id+")'>"+e[i].title+"</a>- - - -<span>"+e[i].createTime+"</span></li>")
@@ -432,7 +432,7 @@
             url:"myListException",
             type:"GET",
             success:function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 $(".myList ul").html("");
                 for (var i = 0; i <e.length ; i++) {
                     $(".myList ul").append("<li><a style='cursor: pointer;width: 120px;overflow: hidden' onclick='toDetailPage("+e[i].id+")'>"+e[i].title+"</a>- - - -<span>"+e[i].createTime+"</span></li>")
@@ -448,7 +448,7 @@
             url: "findFavByUsername",
             type: "GET",
             success:function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 if(e.length != 0){
                     //为空
                     for (var i = 0; i <e.length ; i++) {
@@ -468,7 +468,7 @@
             url: "findHistoryByUsername",
             type: "GET",
             success:function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 if(e.length != 0){	//为空
                     for (var i = 0; i <e.length ; i++) {
                         $(".historyList ul").append("<li><a style='cursor: pointer;width: 120px;overflow: hidden' onclick='toDetailPage("+e[i].id+")'>"+e[i].title+"</a></li>")
@@ -488,7 +488,7 @@
             url: "userInfo",
             type: "GET",
             success: function (res) {
-                var e = JSON.parse(res);
+                var e = res;
                 $(".userInfo ul").html("")
                 $(".userInfo ul").append("<li><strong style='font-weight: 800'>账号：</strong>"+e.username+"</li>\n")
                 $(".userInfo ul").append("<li><strong style='font-weight: 800'>昵称：</strong>"+e.nickName+"</li>\n")

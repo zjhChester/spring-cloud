@@ -12,7 +12,9 @@ xyz\zjhwork\service\UserService.class
 xyz\zjhwork\dao\AproveDao.class
 xyz\zjhwork\springApplicationStarter\BootStarter.class
 xyz\zjhwork\service\ExceptionService.class
+xyz\zjhwork\springApplicationStarter\BootStarter$BootStarterBuilder.class
 xyz\zjhwork\entity\Favorite.class
+xyz\zjhwork\springApplicationStarter\mvcConf\Swagger2Config.class
 xyz\zjhwork\controller\HisController.class
 xyz\zjhwork\entity\Exception.class
 xyz\zjhwork\springApplicationStarter\webServletRegister\WebServletRegister.class
