@@ -116,11 +116,14 @@
         <!--<appender-ref ref="file.error" />-->
     <!--</logger>-->
     <logger name="org.apache.ibatis" level="info">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="debug"/>
     </logger>
 
     <logger name="java.sql" level="info">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="debug"/>
+    </logger>
+    <logger name="xyz.zjhwork.dao" level="debug" additivity="false">
+        <appender-ref ref="debug" />
     </logger>
     <!-- root将级别为${log.root.level}及大于${log.root.level}的日志信息交给已经配置好的名为“Console”的appender处理，“Console”appender将信息打印到Console,其它同理 -->
     <root level="info">

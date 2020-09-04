@@ -2,10 +2,13 @@ package xyz.zjhwork.utils;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtils {
+    public final static String CURRENT_TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    public final static String TODAY = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 //    public static String getDatePoor(Date endDate, Date nowDate) {
 //
 //        long nd = 1000 * 24 * 60 * 60;//每天毫秒数
@@ -40,8 +43,17 @@ public class DateUtils {
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
         return time;
     }
+    public static String  formatYearMonthDay(String time){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+           time=dateFormat.format( dateFormat.parse(time));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return time;
+    }
 
 //    public static void main(String[] args) {
-//        System.out.println(DigestUtils.sha1Hex(DigestUtils.md5Hex("123")));
+//        System.out.println(formatYearMonthDay("2020-09-04 11:22:33"));
 //    }
 }

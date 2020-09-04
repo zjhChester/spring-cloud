@@ -38,13 +38,22 @@
             </plugin>
         </plugins>
     </build>
+    <!--ExceptionSearch-linux-updatingVersionOfSpringAndTomcat-20200904-->
+    <!-- artifactId-tomcat.currentSystem-updatingVersionDesc-version  -->
     <groupId>xyz.zjhwork</groupId>
     <artifactId>ExceptionSearch</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>20200904</version>
     <properties>
-        <spring.version>5.0.17.RELEASE</spring.version>
+        <spring.version>5.2.6.RELEASE</spring.version>
+        <tomcat.version>8.5.56</tomcat.version>
     </properties>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.12</version>
+        </dependency>
 
         <dependency>
             <groupId>io.springfox</groupId>
@@ -99,13 +108,13 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>8.5.33</version>
+            <version>${tomcat.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <version>8.5.50</version>
+            <version>${tomcat.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>

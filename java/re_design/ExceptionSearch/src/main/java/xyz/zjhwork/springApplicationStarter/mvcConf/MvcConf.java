@@ -38,8 +38,6 @@ import java.util.Properties;
 @EnableSwagger2
 public class MvcConf implements WebMvcConfigurer {
 
-
-
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 //        字符转换  包括解决中文乱码
@@ -77,13 +75,13 @@ public class MvcConf implements WebMvcConfigurer {
 
     }
 
-    /**
-     * put请求的参数过滤器
-     */
-    @Bean
-    public HttpPutFormContentFilter httpPutFormContentFilter(){
-        return new HttpPutFormContentFilter();
-    }
+//    /**
+//     * put请求的参数过滤器
+//     */
+//    @Bean
+//    public HttpPutFormContentFilter httpPutFormContentFilter(){
+//        return new HttpPutFormContentFilter();
+//    }
 
     /**
      * mybatisConf
