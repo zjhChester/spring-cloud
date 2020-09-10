@@ -10,7 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 public class WebServletRegister implements WebApplicationInitializer {
-    public void onStartup(ServletContext servletContext) throws ServletException {
+
+
+    public void onStartup(ServletContext servletContext){
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(MvcConf.class);
         DispatcherServlet dispatcherServlet = new DispatcherServlet(ac);

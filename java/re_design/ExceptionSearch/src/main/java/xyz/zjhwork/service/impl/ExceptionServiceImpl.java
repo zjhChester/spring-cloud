@@ -32,10 +32,7 @@ public class ExceptionServiceImpl implements ExceptionService {
         return exceptionDao.updateException(e);
     }
 
-    @Override
-    public int deleteException(Exception e) {
-        return exceptionDao.deleteException(e);
-    }
+
 
     /**
      * 核心业务
@@ -117,6 +114,11 @@ public class ExceptionServiceImpl implements ExceptionService {
     @Override
     public Exception findExceptionById(int id) {
         return exceptionDao.findExceptionById(id);
+    }
+
+    @Override
+    public int delException(Integer id) {
+        return exceptionDao.delException(id);
     }
 
 

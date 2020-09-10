@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>博文详情</title>
+    <meta class="keywords" name="Keywords" Content="Exception Search">
     <script type="text/javascript" src="js/showdown.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link id="theme" rel="stylesheet" type="text/css" href="theme/engwrite.css"/>
@@ -13,6 +14,10 @@
     <script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
 
     <style>
+        #detail{
+            margin: 0 auto;
+            max-width: 1000px;
+        }
         .comment_list .comment_body:hover {
             transition: 0.3s ease-in;
             box-shadow: 5px 5px 5px 3px gray;
@@ -32,14 +37,15 @@
         <a href="/createMarkdown.html" target="_blank">
             <button class="btn btn-warning">写文章</button>
         </a>
-        <button class="btn btn-success favoriteBtn" onclick="addFavorite(location.href.toString().substr(location.href.indexOf("?")+1).split("=")[1])">收藏该文</button>
+        <button class="btn btn-success favoriteBtn" onclick="addFavorite(location.href.toString().substr(location.href.indexOf('?')+1).split('=')[1])">收藏该文</button>
         <button class="btn btn-info ApproveBtn">❤</button>
+        <button disabled class="btn btn-danger viewsTab">views:</button>
     </div>
     <div class="col-xs-4 text-right user" >
         <button  type="button" class="btn btn-default " data-toggle="modal"onclick="login()" data-target=".myModalLogin">登录</button>
     </div>
 </div>
-<div id="">
+<div id="detail">
     <div class="col-xs-12 text-warning text-center" style="height: 60px;">
         <h1 id="title">文章标题</h1>
     </div>
@@ -122,6 +128,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelLogin">取消</button>
                 <button type="button" class="btn btn-primary" id="myModal_enterLogin" >登录</button>
+                <a href="register.html"><button type="button" class="btn btn-warning" >注册</button></a>
             </div>
         </div>
     </div>

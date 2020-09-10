@@ -20,9 +20,9 @@ public class User {
 //    @NotBlank(message = "password不能为空")
     private String password;
 
-    private String [] arr;
-
-    private List<Msg> msgs;
+//    private String [] arr;
+//
+//    private List<Msg> msgs;
 
 
 

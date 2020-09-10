@@ -1,0 +1,12 @@
+2020-09-10 11:06:09.657 INFO  [localhost-startStop-1]:Initializing Servlet 'dispatcherServlet'
+2020-09-10 11:06:10.195 INFO  [localhost-startStop-1]:Cannot enhance @Configuration bean definition 'mvcConf' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-09-10 11:06:11.606 INFO  [localhost-startStop-1]:HV000001: Hibernate Validator 6.1.5.Final
+2020-09-10 11:06:11.884 INFO  [localhost-startStop-1]:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-09-10 11:06:11.900 INFO  [localhost-startStop-1]:Context refreshed
+2020-09-10 11:06:11.916 INFO  [localhost-startStop-1]:Found 1 custom documentation plugin(s)
+2020-09-10 11:06:11.955 INFO  [localhost-startStop-1]:Scanning for api listing references
+2020-09-10 11:06:12.150 WARN  [localhost-startStop-1]:Trying to infer dataType java.lang.Integer[]
+2020-09-10 11:06:12.153 INFO  [localhost-startStop-1]:Generating unique operation named: fileOutPutUsingGET_1
+2020-09-10 11:06:12.198 INFO  [localhost-startStop-1]:Completed initialization in 2539 ms
+2020-09-10 11:06:26.401 INFO  [http-nio-9001-exec-4]:hikariDataSource in Hikari System - Starting...
+2020-09-10 11:06:26.623 INFO  [http-nio-9001-exec-4]:hikariDataSource in Hikari System - Start completed.

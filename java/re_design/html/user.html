@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>个人中心</title>
+	<!-- import CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<style type="text/css">
+		*::-webkit-scrollbar {
+			display: none
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<!-- headr -->
+		<el-menu default-active="3" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+			style="box-shadow: #DDDDDD 0px 1px 0px;">
+			<el-menu-item index="1">首页</el-menu-item>
+
+			<el-menu-item index="2">写文章</el-menu-item>
+			<el-menu-item index="3">个人中心</el-menu-item>
+			<el-submenu  index="4" style="text-align: right;">
+				<template slot="title">帅炸了的张小皮</template>
+				<el-menu-item index="2-1">信息修改</el-menu-item>
+				<el-menu-item index="2-2">退出登录</el-menu-item>
+			</el-submenu>
+		</el-menu>
+
+		<!-- body -->
+		<div style="width: 80%;margin: 0 auto;">
+			<el-row :gutter="40" >
+				<el-col :span="16">
+					<!-- 最新文章模块 -->
+					<div class="grid-content bg-purple">
+						<el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left:8%;margin:30px;">
+							<el-breadcrumb-item >个人中心</el-breadcrumb-item>
+							<el-breadcrumb-item>最新文章</el-breadcrumb-item>
+						</el-breadcrumb>
+						<el-timeline
+							:style="'max-height:'+ (windowHeight-130)+'px;min-height:'+ (windowHeight-130)+'px;overflow-y: scroll;border-right: solid 1px lightgray;padding-right: 20px;'">
+							<el-timeline-item timestamp="2018/4/12" placement="top">
+								<el-card>
+									<h4>更新 Github 模板</h4>
+									<p>王小虎 提交于 2018/4/12 20:46</p>
+								</el-card>
+							</el-timeline-item>
+					
+						</el-timeline>
+					</div>
+					<!-- 我的文章模块 -->
+					<div class="grid-content bg-purple" 	style="border-top: lightgray 1px solid;margin-top: 20px;">
+							<el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left:8%;margin:30px;">
+									<el-breadcrumb-item >个人中心</el-breadcrumb-item>
+									<el-breadcrumb-item>我的文章</el-breadcrumb-item>
+								</el-breadcrumb>
+						<el-timeline :style="'max-height:'+ (windowHeight-130)+'px;overflow-y: scroll;min-height:'+ (windowHeight-130)+'px;border-right: lightgray 1px solid;padding-right: 20px;'">
+								<el-timeline-item timestamp="2018/4/12" placement="top">
+									<el-card>
+										<h4>更新 Github 模板</h4>
+										<p>王小虎 提交于 2018/4/12 20:46</p>
+									</el-card>
+								</el-timeline-item>
+							
+							</el-timeline>
+					</div>
+				</el-col>
+
+				<el-col :span="8">
+					
+				<!-- 历史记录/我的收藏模块 -->
+				<div class="grid-content bg-purple">
+				
+					<el-collapse v-model="activeNames" @change="handleChange">
+						<el-collapse-item title="我的信息" name="1">
+							<!-- 我的信息模块 -->
+							<div class="grid-content bg-purple">
+								<div>账号：</div>
+								<hr style="border: solid 0.5px lightgray;width: 80%;">
+								<div>昵称：</div>
+								<hr style="border: solid 0.5px lightgray;width: 80%;">
+								<div>性别：</div>
+								<hr style="border: solid 0.5px lightgray;width: 80%;">
+								<div>邮箱：</div>
+								<hr style="border: solid 0.5px lightgray;width: 80%;">
+							</div>
+						</el-collapse-item>
+						<el-collapse-item title="我的收藏" name="2">
+							<div class="fav_activities">
+								<el-timeline>
+									<el-timeline-item v-for="(activity, index) in fav_activities" :key="index" :icon="activity.icon"
+										:type="activity.type" :color="activity.color" :size="activity.size"
+										:timestamp="activity.timestamp">
+										{{activity.content}}
+									</el-timeline-item>
+								</el-timeline>
+							</div>
+						</el-collapse-item>
+						<el-collapse-item title="访问足迹" name="3">
+								<div class="history_activities">
+										<el-timeline>
+											<el-timeline-item v-for="(activity, index) in history_activities" :key="index" :icon="activity.icon"
+												:type="activity.type" :color="activity.color" :size="activity.size"
+												:timestamp="activity.timestamp">
+												{{activity.content}}
+											</el-timeline-item>
+										</el-timeline>
+									</div>
+						</el-collapse-item>
+				
+					</el-collapse>
+				</div>
+				</el-col>
+			</el-row>
+
+		</div>
+
+	</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- import JavaScript -->
+<script crossorigin="anonymous" integrity="sha384-WbhdtWslh0AUD1Dhf8OExUvvjZ/VN6o2HHMsYlDXb6uf3IweMH13dGL4V/KgDc7y"
+	src="https://lib.baomitu.com/element-ui/2.13.2/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/2.2.1/js.cookie.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: function () {
+			return {
+				//框架参数
+				activeNames: ['1','2','3'],
+				windowHeight: 0,
+				//我的收藏参数
+				fav_activities: [{
+					content: '支持使用图标',
+					timestamp: '2018-04-12 20:46',
+					size: 'large',
+					type: 'primary',
+					icon: 'el-icon-star-off'
+				}, {
+					content: '支持自定义颜色',
+					timestamp: '2018-04-03 20:46',
+					type: 'warning ',
+					size: 'normal',
+					icon: 'el-icon-star-on'
+				}, {
+					content: '支持自定义尺寸',
+					timestamp: '2018-04-03 20:46',
+					type: 'success',
+					size: 'normal',
+					icon: 'el-icon-star-off'
+				}, {
+					content: '默认样式的节点',
+					timestamp: '2018-04-03 20:46',
+					type: 'danger',
+					size: 'normal',
+					icon: 'el-icon-star-on'
+				}],
+				history_activities: [{
+					content: '支持使用图标',
+					timestamp: '2018-04-12 20:46',
+					size: 'large',
+					type: 'primary',
+					icon: 'el-icon-view'
+				}, {
+					content: '支持自定义颜色',
+					timestamp: '2018-04-03 20:46',
+					type: 'warning',
+					size: 'warning',
+					icon: 'el-icon-view'
+				}, {
+					content: '支持自定义尺寸',
+					timestamp: '2018-04-03 20:46',
+					type: 'success',
+					size: 'normal',
+					icon: 'el-icon-view'
+				}, {
+					content: '默认样式的节点',
+					timestamp: '2018-04-03 20:46',
+					type: 'danger',
+					size: 'normal',
+					icon: 'el-icon-view'
+				}]
+			}
+		}, methods: {
+			//框架方法
+			handleSelect(key, keyPath) {
+				console.log(key, keyPath);
+			},
+			handleChange(val) {
+				console.log(val);
+			},
+			//检查登录状态
+			createMarkdownUserStatus() {
+				axios({
+					url: this.url + "/status",
+					headers: {
+						'token': this.auth.accessToken
+					},
+					method: "GET"
+				}).then(response => {
+
+				})
+					.catch((error) => {
+						this.$message.error(error)
+					})
+			},
+			//加载最新文章
+			newListLoading() {
+				axios({
+					url: this.url + "/status",
+					headers: {
+						'token': this.auth.accessToken
+					},
+					method: "GET"
+				}).then(response => {
+
+				})
+					.catch((error) => {
+						this.$message.error(error)
+					})
+			},
+			//加载我的文章
+			myListLoading(accessToken) {
+
+				axios({
+					url: this.url + "/status",
+					headers: {
+						'token': this.auth.accessToken
+					},
+					method: "GET"
+				}).then(response => {
+
+				})
+					.catch((error) => {
+						this.$message.error(error)
+					})
+			},
+			//加载用户信息
+			myInfo(key, value) {
+				axios({
+					url: this.url + "/status",
+					headers: {
+						'token': this.auth.accessToken
+					},
+					method: "GET"
+				}).then(response => {
+
+				})
+					.catch((error) => {
+						this.$message.error(error)
+					})
+			},
+			//加载我的收藏
+			myFavoriteLoading(key) {
+				axios({
+					url: this.url + "/status",
+					headers: {
+						'token': this.auth.accessToken
+					},
+					method: "GET"
+				}).then(response => {
+
+				})
+					.catch((error) => {
+						this.$message.error(error)
+					})
+			},
+			//加载历史记录
+			historyLoading(name) {
+
+				axios({
+					url: this.url + "/status",
+					headers: {
+						'token': this.auth.accessToken
+					},
+					method: "GET"
+				}).then(response => {
+
+				})
+					.catch((error) => {
+						this.$message.error(error)
+					})
+			}
+		},
+		//初始化
+		created: function () {
+			//窗体高度自适应
+			this.windowHeight = Number(window.innerHeight / 2);
+			console.log(this.windowHeight)
+		}
+	})
+
+
+</script>
+
+</html>

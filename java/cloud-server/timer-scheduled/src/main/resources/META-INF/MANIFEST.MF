@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Class-Path: tomcat-embed-websocket-9.0.36.jar bcprov-jdk15on-1.60.jar 
+ jersey-client-1.19.1.jar logback-core-1.2.3.jar guava-19.0.jar logbac
+ k-classic-1.2.3.jar ribbon-core-2.3.0.jar jsr311-api-1.1.1.jar jackso
+ n-module-parameter-names-2.11.0.jar spring-context-5.2.7.RELEASE.jar 
+ spring-webmvc-5.2.7.RELEASE.jar servo-internal-0.10.1.jar httpcore-4.
+ 4.13.jar rxjava-1.3.8.jar spring-security-crypto-5.3.3.RELEASE.jar sp
+ ring-core-5.2.7.RELEASE.jar spring-security-rsa-1.0.7.RELEASE.jar spr
+ ing-beans-5.2.7.RELEASE.jar commons-io-2.2.jar ribbon-2.3.0.jar snake
+ yaml-1.26.jar commons-lang-2.6.jar jersey-apache-client4-1.19.1.jar s
+ pring-cloud-commons-2.1.1.RELEASE.jar spring-boot-autoconfigure-2.3.1
+ .RELEASE.jar log4j-to-slf4j-2.13.3.jar jersey-core-1.19.1.jar spring-
+ boot-starter-tomcat-2.3.1.RELEASE.jar spring-expression-5.2.7.RELEASE
+ .jar commons-codec-1.14.jar spring-cloud-starter-netflix-ribbon-2.1.1
+ .RELEASE.jar rxnetty-servo-0.4.9.jar ribbon-loadbalancer-2.3.0.jar sp
+ ring-web-5.2.7.RELEASE.jar jackson-annotations-2.11.0.jar bcpkix-jdk1
+ 5on-1.60.jar spring-cloud-alibaba-nacos-config-0.9.0.RELEASE.jar simp
+ leclient-0.5.0.jar servo-core-0.10.1.jar spring-cloud-alibaba-nacos-d
+ iscovery-0.9.0.RELEASE.jar spring-boot-starter-web-2.3.1.RELEASE.jar 
+ ribbon-transport-2.3.0.jar jakarta.annotation-api-1.3.5.jar jsr305-3.
+ 0.1.jar spring-boot-starter-2.3.1.RELEASE.jar hystrix-core-1.4.3.jar 
+ jackson-databind-2.11.0.jar fastjson-1.2.47.jar jakarta.el-3.0.3.jar 
+ rxnetty-0.4.9.jar spring-jcl-5.2.7.RELEASE.jar spring-cloud-netflix-r
+ ibbon-2.1.1.RELEASE.jar spring-cloud-starter-netflix-archaius-2.1.1.R
+ ELEASE.jar nacos-client-1.0.0.jar netflix-commons-util-0.1.1.jar spri
+ ng-boot-starter-logging-2.3.1.RELEASE.jar netflix-statistics-0.1.1.ja
+ r jackson-datatype-jdk8-2.11.0.jar nacos-common-1.0.0.jar jackson-dat
+ atype-jsr310-2.11.0.jar spring-cloud-context-2.1.1.RELEASE.jar httpcl
+ ient-4.5.12.jar spring-cloud-starter-2.1.1.RELEASE.jar jackson-core-2
+ .11.0.jar ribbon-httpclient-2.3.0.jar commons-configuration-1.8.jar s
+ pring-aop-5.2.7.RELEASE.jar nacos-api-1.0.0.jar spring-boot-2.3.1.REL
+ EASE.jar archaius-core-0.7.6.jar commons-collections-3.2.2.jar jul-to
+ -slf4j-1.7.30.jar spring-cloud-netflix-archaius-2.1.1.RELEASE.jar com
+ mons-lang3-3.10.jar rxnetty-contexts-0.4.9.jar spring-boot-starter-js
+ on-2.3.1.RELEASE.jar tomcat-embed-core-9.0.36.jar log4j-api-2.13.3.ja
+ r slf4j-api-1.7.30.jar spring-cloud-starter-alibaba-nacos-discovery-0
+ .9.0.RELEASE.jar javax.inject-1.jar
+Main-Class: cn.zjh.spring.timerscheduled.TimerScheduledApplication
+

@@ -1,6 +1,5 @@
 package cn.zjh.spring.serverauth.auth.controller;
 
-import cn.zjh.spring.serverauth.auth.config.TestAnnotation;
 import cn.zjh.spring.serverauth.auth.dto.AutoDTO;
 import cn.zjh.spring.serverauth.auth.dto.TokenDTO;
 import cn.zjh.spring.serverauth.auth.utils.JwtUtil;
@@ -52,16 +51,22 @@ public class AuthController {
     @GetMapping("/auth")
     public R<TokenDTO> refreshToken(     @RequestHeader String accessToken,@RequestHeader String refreshToken){
         if(JwtUtil.verify(refreshToken)){
-        String username;
+        String accessTokenUsername;
        try {
-           username = JwtUtil.getUsername(accessToken);
+
+           accessTokenUsername = JwtUtil.getUsername(accessToken);
        }catch (Exception ex){
            //accessToken无效
            return R.failed("认证失败，token格式错误");
        }
-         accessToken = JwtUtil.sign(username, 1000 * 5);
+            //对比accessToken 和 refreshToken的用户信息
+            if(accessToken.equals(JwtUtil.getUsername(refreshToken))){
+            accessToken = JwtUtil.sign(accessTokenUsername, 1000 * 5);
         TokenDTO tokenDTO = new TokenDTO(accessToken,refreshToken);
         return R.ok(tokenDTO);
+            }else{
+                return R.failed("非法参数！（accessInfo != refreshInfo）");
+            }
         }else{
             //refreshToken 过期
             return R.failed("认证失败，请重新登录");

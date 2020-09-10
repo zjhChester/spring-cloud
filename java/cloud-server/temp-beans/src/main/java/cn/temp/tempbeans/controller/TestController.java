@@ -1,11 +1,13 @@
 package cn.temp.tempbeans.controller;
 import cn.temp.tempbeans.dao.RolesMapper;
 import cn.temp.tempbeans.dao.UserMapper;
+import cn.temp.tempbeans.pojo.Exception;
 import cn.temp.tempbeans.pojo.Roles;
 import cn.temp.tempbeans.pojo.User;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +25,20 @@ public class TestController {
 
     @Autowired
     private UserMapper userMapper;
+
+    @GetMapping("/page")
+    public R<List<User>> page(Integer currPage,Integer pageSize){
+        Page<User> page = userMapper.selectPage(new Page<User>(currPage, pageSize), new QueryWrapper<User>().like("username", "z"));
+        System.out.println("current:"+page.getCurrent());
+        System.out.println("orders:"+((Page<User>) page).getOrders());
+        System.out.println("size:"+page.getSize());
+        System.out.println("pages:"+page.getPages());
+        System.out.println("total:"+page.getTotal());
+        return R.ok(page.getRecords());
+
+    }
+
+
 
     @ApiOperation(value = "获取用户列表", notes = "用户列表")
     @RequestMapping(value = "/user", method = RequestMethod.GET)

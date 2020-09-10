@@ -11,8 +11,7 @@ public interface ExceptionService {
     List<Exception> findException(Exception e);
     int insertException(Exception e);
     int updateException(Exception e);
-    //管理员权限
-    int deleteException(Exception e);
+
 
     //业务
     //检索
@@ -23,4 +22,5 @@ public interface ExceptionService {
     List<Exception> myListException(String username);
 
     Exception findExceptionById(int id);
+    int delException(Integer id);
 }

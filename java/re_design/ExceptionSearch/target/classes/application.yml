@@ -1,0 +1,17 @@
+tomcat:
+  current-system: windows
+
+
+config:
+  windows:
+    context-path: /
+    doc-base: C://test/
+    port: 9001
+  linux:
+    context-path: /
+    doc-base: /usr/local/project/tomcatDoc
+    port: 80
+
+
+
+
