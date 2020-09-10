@@ -23,7 +23,7 @@ public class Exception  implements Serializable {
     private String createTime;
 
     private String author;
-
+    
     private String remark;
     @NotBlank(message = "类型不能为空")
     private String type;

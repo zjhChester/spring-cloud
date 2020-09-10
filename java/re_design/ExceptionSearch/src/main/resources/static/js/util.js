@@ -197,6 +197,7 @@
                     $("#author").html("作者："+e.result[0].author);
                     $("#type").html("标签："+e.result[0].type);
                     $(".viewsTab").html("views:"+e.result[0].views)
+                    $("#createTime").html(e.result[0].createTime)
                     convert(e.result[0].content);
                     //加载结束
                     $(".load").hide()

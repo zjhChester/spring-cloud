@@ -42,7 +42,7 @@
     <!-- artifactId-tomcat.currentSystem-updatingVersionDesc-version  -->
     <groupId>xyz.zjhwork</groupId>
     <artifactId>ExceptionSearch</artifactId>
-    <version>20200904</version>
+    <version>20200907</version>
     <properties>
         <spring.version>5.2.6.RELEASE</spring.version>
         <tomcat.version>8.5.56</tomcat.version>

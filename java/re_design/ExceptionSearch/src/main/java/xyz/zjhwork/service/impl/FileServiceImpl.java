@@ -15,16 +15,11 @@ import xyz.zjhwork.resmodel.ResponseModel;
 import xyz.zjhwork.service.FileService;
 import xyz.zjhwork.utils.DateUtils;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.zip.ZipFile;
 
 /**
  * Describe: 内容文件导出业务实现
@@ -55,23 +50,26 @@ public class FileServiceImpl implements FileService {
         YamlPropertiesFactoryBean yamlPropertiesFactoryBean = new YamlPropertiesFactoryBean();
         yamlPropertiesFactoryBean.setResources(new ClassPathResource("application.yml"));
         Properties properties = yamlPropertiesFactoryBean.getObject();
-
+        List<File> files = new ArrayList<>();
         //ids的拼接
         Arrays.stream(ids).map(integer -> integer.toString()).collect(Collectors.toList());
         List<String> collect = Arrays.stream(ids).map(Object::toString).collect(Collectors.toList());
         String join = String.join(",",collect);
         List<Exception> listByIds = exceptionDao.findListByIds(join);
+        OutputStreamWriter os=null;
         if(listByIds==null || listByIds.size()==0||properties==null){
             return ResponseModel.failResModel(0,"没有可导出的文章");
         }else{
-            for (Exception e : listByIds) {
+            //文件夹file
             String dirPath = properties.get("config."+properties.getProperty("tomcat.current-system")+".doc-base").toString()+"/markDownDirectory/"+DateUtils.TODAY+"/";
             File dir = new File(dirPath);
-                dir.setLastModified(System.currentTimeMillis());
+            dir.setLastModified(System.currentTimeMillis());
             if (!dir.exists()) {
                 dir.mkdirs();
             }
-            String fileName = dirPath+DateUtils.formatYearMonthDay(e.getCreateTime())+"-"+e.getTitle()+".md";
+            //文件file
+            for (Exception e : listByIds) {
+            String fileName = dirPath+DateUtils.formatYearMonthDay(e.getCreateTime())+"-"+e.getTitle().replace("/"," ")+".md";
             File file = new File(fileName);
             if(!file.exists()) {
                 try {
@@ -80,25 +78,29 @@ public class FileServiceImpl implements FileService {
                     e1.printStackTrace();
                 }
             }
-            OutputStreamWriter os=null;
-            try {
-                os = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
-                StringBuilder markDownContent = new StringBuilder("---");
-                markDownContent.append("\nlayout:     post\nauthor:     ").append(e.getAuthor()).append("\nheader-img: img/home-bg-o.jpg\ncatalog: true\ntags:\n    - ").append(e.getType()).append("\n---\n");
-                markDownContent.append(e.getContent());
-                os.write(markDownContent.toString());
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }finally {
                 try {
-                    if(os!=null)
-                        os.close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                    os = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
+                    files.add(file);
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
+                StringBuilder markDownContent = new StringBuilder("---");
+                markDownContent.append("\nlayout:     post\nauthor:     ").append(e.getAuthor()).append("\nheader-img: img/post-bg-github-cup.jpg\ncatalog: true\ntags:\n    - ").append(e.getType()).append("\n---\n");
+                markDownContent.append(e.getContent());
+                try {
+                    os.write(markDownContent.toString());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }  finally {
+                    try {
+                        if(os!=null)
+                            os.close();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
-            }
-        return ResponseModel.successResModel(1,"SUCCESS",listByIds.toArray());
+        return ResponseModel.successResModel(1,"导出条数："+listByIds.size(),files.toArray());
         }
     }
 }

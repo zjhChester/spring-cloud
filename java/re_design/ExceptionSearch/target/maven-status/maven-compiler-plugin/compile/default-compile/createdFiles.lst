@@ -12,6 +12,7 @@ xyz\zjhwork\service\UserService.class
 xyz\zjhwork\dao\AproveDao.class
 xyz\zjhwork\springApplicationStarter\BootStarter.class
 xyz\zjhwork\service\ExceptionService.class
+xyz\zjhwork\service\impl\FileServiceImpl.class
 xyz\zjhwork\springApplicationStarter\BootStarter$BootStarterBuilder.class
 xyz\zjhwork\entity\Favorite.class
 xyz\zjhwork\springApplicationStarter\mvcConf\Swagger2Config.class
@@ -20,11 +21,14 @@ xyz\zjhwork\entity\Exception.class
 xyz\zjhwork\springApplicationStarter\webServletRegister\WebServletRegister.class
 xyz\zjhwork\utils\DateUtils.class
 xyz\zjhwork\entity\User.class
+xyz\zjhwork\service\FileService.class
+xyz\zjhwork\utils\ZipUtils.class
 xyz\zjhwork\controller\FavController.class
 xyz\zjhwork\dao\CommentDao.class
 xyz\zjhwork\entity\Comment.class
 xyz\zjhwork\controller\IndexController.class
 xyz\zjhwork\conf\HandleExceptionInValid.class
+xyz\zjhwork\controller\FileController.class
 xyz\zjhwork\dao\ExceptionDao.class
 xyz\zjhwork\service\impl\ExceptionServiceImpl.class
 xyz\zjhwork\controller\UserController.class

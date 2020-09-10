@@ -3,11 +3,8 @@ package xyz.zjhwork.springApplicationStarter;
 import lombok.Builder;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.io.ClassPathResource;
-
-import java.io.IOException;
 import java.util.Properties;
 @Builder
 public class BootStarter {

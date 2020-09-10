@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.zjhwork</groupId>
   <artifactId>ExceptionSearch</artifactId>
-  <version>20200904</version>
+  <version>20200907</version>
   <build>
     <plugins>
       <plugin>

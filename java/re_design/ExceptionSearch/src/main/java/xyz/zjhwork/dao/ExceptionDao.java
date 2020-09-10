@@ -53,6 +53,6 @@ public interface ExceptionDao {
     int delException(Integer id);
 
     //根据传入的ids数组，输出list<Exception>
-    @Select("select id,createTime,author,content,title,exception.desc,exception.type from exception where id in (#{ids})")
-    List<Exception> findListByIds( String ids);
+    @Select("select id,createTime,author,content,title,exception.desc,exception.type from exception where id in (${ids})")
+    List<Exception> findListByIds(@Param("ids") String ids);
 }
